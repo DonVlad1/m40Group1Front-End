@@ -1,10 +1,13 @@
 import React from "react"
+import '../css/postCreate.css';
 
 function PostCreate() {
     return (
-        <div>
-            <h1>Please Work</h1>
-        </div>
+        <>
+            <div id="content">
+            
+            </div>
+        </>
     )
 }
 
