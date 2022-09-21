@@ -1,12 +1,13 @@
-body{
-    background-image: url('../../public/images/img1.jpg');
-    background-size: cover;
+#homeContent {
+    background-image: url('../../public/images/img1.jpg') !important;
+    background-size:cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 95vh;
+    width: 100vw;
     color: white;
 }
 
-h1{
+#homeContent h1{
   margin: 0;
   font-size: 80px;
   padding-left: 50px;
@@ -15,7 +16,7 @@ h1{
   top: 130px;
 }
 
-h2{
+#homeContent h2{
   margin: 0;
   padding-left: 50px;
   padding-top: 0;
@@ -23,23 +24,23 @@ h2{
   top: 130px;
 }
 
-img{
+#homeContent img{
   height: 31.25px;
   width: 142.5px;
   padding-top: 20px;
   padding-left: 15px;
 }
 
-button{
+#homeContent button{
   position: relative;
   top: 250px;
 }
 
-.btn{
+#homeContent .btn{
   padding-left: 50px;
 }
 
-button {
+#homeContent button {
   padding: 1.3em 8em;
   font-size: 12px;
   text-transform: uppercase;
@@ -55,7 +56,7 @@ button {
   outline: none;
 }
 
-button:hover {
+#homeContent button:hover {
   background-color: #1d2637;
   border: 2px solid #1d2637;
   border-radius: 45px;
@@ -64,17 +65,17 @@ button:hover {
   transform: translateY(-7px);
 }
 
-button:active {
+#homeContent button:active {
   transform: translateY(-1px);
 }
 
-.icon{
+#homeContent .icon{
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-.navBar {
+#homeContent .navBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -83,14 +84,14 @@ button:active {
   background-color: #1d2637;
 }
 
-#logo {
+#homeContent #logo {
   width: 200px;
   height: 50px;
   padding-left: 20px;
   padding-top: 20px;
 }
 
-#menuButton {
+#homeContent #menuButton {
   background-color: #1d2637;
   border: none;
   cursor: pointer;
