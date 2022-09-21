@@ -6,7 +6,7 @@ function Profile() {
         <>
             <div id="postCreateContent" className="flexbox">
                 <h1>My Profile</h1>
-                <button>Log Out</button>
+                <button className="btn-profile">Log Out</button>
                 <button>Delete Account</button>
                 <form id="postCreateForm">
                     <input />
