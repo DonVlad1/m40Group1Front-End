@@ -27,7 +27,7 @@ export const Sidebar = [
   },
   {
     title: 'LOGIN/SIGN UP',
-    // path: '/messages',
+    path: '/login',
     cName: 'nav-text'
   }
 ];
