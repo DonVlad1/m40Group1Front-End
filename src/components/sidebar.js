@@ -12,7 +12,7 @@ export const Sidebar = [
   },
   {
     title: 'LIST A VEHICLE',
-    path: '/PostCreate',
+    path: '/postCreate',
     cName: 'nav-text'
   },
   {
