@@ -9,7 +9,7 @@ import Login from "./pages/login"
 function App(props) {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App flexbox">
         <Navbar />
         <Routes>
             <Route path='/' element = {<Home />} />
