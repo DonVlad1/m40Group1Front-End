@@ -2,6 +2,7 @@ import React from "react"
 import '../css/home.css';
 
 function Home() {
+    // test comment
     return (
         <div id="homeContent">
             <img src='./images/carlogo.png' alt=''/>
