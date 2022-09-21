@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import PostCreate from "./pages/postCreate"
 import Home from "./pages/home"
+import Profile from './pages/profile';
 
 function App(props) {
   return (
@@ -12,6 +13,7 @@ function App(props) {
         <Routes>
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
+            <Route path='/profile' element = {<Profile/>} />
         </Routes>
       </div>
     </BrowserRouter>
