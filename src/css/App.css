@@ -1,3 +1,24 @@
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+}
+
+#root {
+    width: inherit;
+    height: inherit;
+}
+
+.App {
+    width: inherit;
+    height: inherit;
+}
+
 .flexbox {
 	display: flex;
 	flex-flow: row wrap;

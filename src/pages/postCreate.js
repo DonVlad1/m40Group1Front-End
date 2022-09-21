@@ -4,8 +4,10 @@ import '../css/postCreate.css';
 function PostCreate() {
     return (
         <>
-            <div id="content" className="flexbox">
-                
+            <div id="postCreateContent" className="flexbox">
+                <form id="postCreateForm">
+                    <input />
+                </form>
             </div>
         </>
     )
