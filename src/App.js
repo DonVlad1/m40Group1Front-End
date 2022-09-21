@@ -4,6 +4,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
   return (
+
       <div className="App">
           <img src='./images/carlogo.png' alt=''/>
           <h1>All about the drive</h1>
@@ -17,6 +18,7 @@ function App() {
           </Router>
           </div>
       </div>
+
   );
 }
 
