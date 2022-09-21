@@ -3,7 +3,7 @@ import '../css/home.css';
 
 function Home() {
     return (
-        <>
+        <div id="homeContent">
             <img src='./images/carlogo.png' alt=''/>
             <h1>All about the drive</h1>
             <h2>Find the car that is right for your journey</h2>
@@ -13,7 +13,7 @@ function Home() {
             <div className='icon'>
 
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .menu-bars {
   font-size: 2rem;
   position: relative;
@@ -7,6 +8,22 @@
   background: none;
   color: white;
 }
+=======
+.navbar {
+  background-color: #2f3f5d;
+  height: 5vh;
+}
+
+.menu-bars {
+    font-size: 2rem;
+    position: relative;
+    top: 10px;
+    margin: 0;
+    padding-right: 15px;
+    background: none;
+    color: white;
+  }
+>>>>>>> 8dda27144082d87adbfccfe87ff5681623c5d1fb
 
 .nav-menu {
   background-color: #2f3f5d;

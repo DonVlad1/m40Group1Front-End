@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+=======
+body {
+    background-image: none !important;
+}
+
+#postCreatContent {
+    width: 70%;
+    height: 200px;
+    background-color: navy;
+}
+>>>>>>> 8dda27144082d87adbfccfe87ff5681623c5d1fb
