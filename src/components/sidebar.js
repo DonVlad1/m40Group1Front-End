@@ -22,7 +22,7 @@ export const Sidebar = [
   },
   {
     title: 'MY PROFILE',
-    // path: '/team',
+    path: '/profile',
     cName: 'nav-text'
   },
   {
