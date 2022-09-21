@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Logo from '../assets/logoN3.png';
 import MenuIcon from '../assets/menu.png'
+import '../css/topNavbar.css';
 
 const TopNavbar = () => {
 
