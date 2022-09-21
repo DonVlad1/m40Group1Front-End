@@ -14,11 +14,6 @@ body {
     height: inherit;
 }
 
-.App {
-    width: inherit;
-    height: inherit;
-}
-
 .flexbox {
 	display: flex;
 	flex-flow: row wrap;

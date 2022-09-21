@@ -5,7 +5,7 @@ function PostCreate() {
     return (
         <>
             <div id="postCreateContent" className="flexbox">
-                <form id="postCreateForm">
+                <form id="postCreateForm" className="flexbox">
                     <input />
                 </form>
             </div>
