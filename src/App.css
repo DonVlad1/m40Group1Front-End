@@ -1,38 +1,76 @@
-.App {
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  background-color: #1d2637;
+}
+
+#logo {
+  width: 200px;
+  height: 50px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#menuButton {
+  background-color: #1d2637;
+  border: none;
+  cursor: pointer;
+}
+
+/* From uiverse.io by @joe-watson-sbf */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 50em;
+  transition: all ease-in-out .5s;
+  margin-right: -2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search__input:hover, .search__input:focus {
+  box-shadow: 0 0 1em #00000013;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search__input:focus {
+  outline: none;
+  background-color: #f0eeee;
 }
 
-.App-link {
-  color: #61dafb;
+.search__input::-webkit-input-placeholder {
+  font-weight: 400;
+  color: rgb(97, 99, 101);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search__input:focus + .search__button {
+  background-color: #f0eeee;
+}
+
+.search__button {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: .1em;
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #1d2637;
 }
