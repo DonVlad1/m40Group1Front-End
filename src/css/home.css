@@ -1,9 +1,9 @@
 body{
-  background-image: url('../public/images/img1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  color: white;
+    background-image: url('../../public/images/img1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
 }
 
 h1{
@@ -94,59 +94,4 @@ button:active {
   background-color: #1d2637;
   border: none;
   cursor: pointer;
-}
-
-/* From uiverse.io by @joe-watson-sbf */
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.search__input {
-  font-family: inherit;
-  font-size: inherit;
-  background-color: #f4f2f2;
-  border: none;
-  color: #646464;
-  padding: 0.7rem 1rem;
-  border-radius: 30px;
-  width: 50em;
-  transition: all ease-in-out .5s;
-  margin-right: -2rem;
-}
-
-.search__input:hover, .search__input:focus {
-  box-shadow: 0 0 1em #00000013;
-}
-
-.search__input:focus {
-  outline: none;
-  background-color: #f0eeee;
-}
-
-.search__input::-webkit-input-placeholder {
-  font-weight: 400;
-  color: rgb(97, 99, 101);
-}
-
-.search__input:focus + .search__button {
-  background-color: #f0eeee;
-}
-
-.search__button {
-  border: none;
-  background-color: #f4f2f2;
-  margin-top: .1em;
-}
-
-.search__button:hover {
-  cursor: pointer;
-}
-
-.search__icon {
-  height: 1.3em;
-  width: 1.3em;
-  fill: #1d2637;
 }

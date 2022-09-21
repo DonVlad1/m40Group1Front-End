@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import PostCreate from "./pages/postCreate"
