@@ -130,7 +130,7 @@ export const updatePassword = async ( token, password ) => {
             })
         })
         const data = await response.json()
-        console.log(`Your has been updated: ${password}`)
+        console.log(`Your password has been updated: ${password}`)
         console.log(data)
 
     } catch (error) {
