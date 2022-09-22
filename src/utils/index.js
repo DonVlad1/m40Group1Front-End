@@ -1,6 +1,7 @@
 // ----------------------------- create -----------------------------
 export const login = async (username, password, setter) =>
 {
+    console.log(username)
     try
     {
         const response = await fetch("http://localhost:5000/user/login", {
