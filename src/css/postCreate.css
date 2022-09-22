@@ -1,5 +1,8 @@
-#postCreatContent {
-    width: 70%;
-    height: 200px;
-    background-color: navy;
+#postCreateContent {
+    width: 100vw;
+}
+
+#postCreateContent #postCreateForm {
+    width: 50vw;
+    flex-direction: column;
 }
