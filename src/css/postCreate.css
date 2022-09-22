@@ -2,10 +2,21 @@
     width: 100vw;
 }
 
+#postCreateColumnHolder {
+    margin: 1em 0;
+}
+
 #postCreateContent #postCreateForm {
     width: 50vw;
     flex-direction: column;
-    height: 200px;
-    background-color: navy;
     align-self: center;
+}
+
+.postCreateColumns {
+    width: 50%;
+    flex-direction: column;
+}
+
+#wiz {
+    width: 40vw;
 }
