@@ -1,7 +1,15 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../css/profile.css';
 
-function Profile() {
+function Profile(props) {
+    const navigate = useNavigate();
+    const [modal, setModal] = useState(false)
+
+    const toggleModal = () => {
+        setModal(!modal)
+      }
+
     return (
         <>
             <div id="postCreateContent" className="flexbox">
@@ -19,8 +27,19 @@ function Profile() {
                 <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
                 </div>
                 <div className="profile-btns">
-                <button className="logout"><span>LOG OUT</span></button>
-                <button className="delete-acc"><span>DELETE ACCOUNT</span></button>
+                <button className="logout" onClick={() => navigate("/login")}><span>LOG OUT</span></button>
+                <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
+                {modal && (
+                          <div className="modal">
+                          <div className="overlay" onClick={toggleModal}></div>
+                          <div className="modal-content">
+                          <img className="modalCat"/>
+                            <h2>Are you sure you want to delete your account?</h2>
+                            <button className="delete-acc"><span>DELETE ACCOUNT</span></button>
+                            <button className="cloaseBtn" onClick={toggleModal}>Close</button>
+                          </div>
+                        </div>
+                )}
                 </div>
 
         </>
