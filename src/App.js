@@ -5,6 +5,7 @@ import PostCreate from "./pages/postCreate"
 import Home from "./pages/home"
 import Profile from './pages/profile';
 import Login from "./pages/login"
+import Signup from "./pages/signUp"
 
 function App(props) {
   return (
@@ -16,6 +17,7 @@ function App(props) {
             <Route path='/postCreate' element = {<PostCreate />} />
             <Route path='/profile' element = {<Profile/>} />
             <Route path='login' element = {<Login />} />
+            <Route path='signup' element = {<Signup />} />
         </Routes>
       </div>
     </BrowserRouter>
