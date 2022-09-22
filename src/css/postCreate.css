@@ -1,5 +1,10 @@
 #postCreateContent {
     width: 100vw;
+}
+
+#postCreateContent #postCreateForm {
+    width: 50vw;
+    flex-direction: column;
     height: 200px;
     background-color: navy;
     align-self: center;
