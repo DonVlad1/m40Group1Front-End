@@ -2,14 +2,39 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #ebebeb;
 }
 
 #loginForm {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 40vw;
   height: 50vh;
   padding: 10px;
+  text-align: center;
+}
+
+#loginForm button {
+  background-color: #008037;
+  font-size: larger;
+  color: white;
+  height: 15%;
+  width: 90%;
+  border-radius: 10px;
+  border-style: none;
+  align-self: center;
+}
+
+.loginInput {
+  height: 15%;
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  border-style: none;
+  align-self: center;
+  text-align: center;
+  font-size: larger;
 }

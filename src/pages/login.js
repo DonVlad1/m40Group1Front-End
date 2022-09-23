@@ -16,12 +16,12 @@ const Login = ({setter}) => {
     <div id="logInContainer">
 
       <form onSubmit = {submitHandler} id="loginForm">
-        <h1>Login</h1>
-        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username:"/>
+        <h1>SIGN IN</h1>
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" class="loginInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password:"/>
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="loginInput"/>
 
-        <button type="submit">Log In</button>
+        <button type="submit">SIGN IN</button>
     
       </form> 
 
