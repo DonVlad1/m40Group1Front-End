@@ -3,15 +3,10 @@ import { useNavigate } from "react-router-dom";
 import '../css/profile.css';
 import { deleteUser } from "../utils";
 
-function Profile(props) {
+function Profile({loggedIn, setLoggedIn}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
     const [token, setToken] = useState("")
-    //change to false 
-
-    //also move to app.js
-    const [loggedIn, setLoggedIn] = useState(true) 
-    //
 
     const toggleModal = () => {
         console.log(loggedIn)
