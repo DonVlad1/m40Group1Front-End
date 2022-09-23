@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import '../css/login.css';
 import { login } from '../utils';
 
@@ -15,16 +16,19 @@ const Login = ({setter}) => {
   return (
     <div id="logInContainer">
 
+      <h1>SIGN IN</h1>
+
       <form onSubmit = {submitHandler} id="loginForm">
-        <h1>Login</h1>
-        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username:"/>
+        
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" class="loginInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password:"/>
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="loginInput"/>
 
-        <button type="submit">Log In</button>
-    
-      </form> 
+        <button type="submit">SIGN IN</button>
 
+      </form>
+      
+      <h2>Not a member? <Link to="/signup" id="accountCreateLink">Create Account</Link></h2>
     </div>
   )
 }
