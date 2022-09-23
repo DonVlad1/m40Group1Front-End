@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import '../css/login.css';
 import { login } from '../utils';
 
-
 const Login = ({setter}) => {
 
   const [username, setUsername] = useState()
@@ -16,6 +15,7 @@ const Login = ({setter}) => {
 
   return (
     <div id="logInContainer">
+
       <h1>SIGN IN</h1>
 
       <form onSubmit = {submitHandler} id="loginForm">
@@ -26,8 +26,8 @@ const Login = ({setter}) => {
 
         <button type="submit">SIGN IN</button>
 
-      </form> 
-
+      </form>
+      
       <h2>Not a member? <Link to="/signup" id="accountCreateLink">Create Account</Link></h2>
     </div>
   )
