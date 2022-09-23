@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import '../css/login.css';
 import { login } from '../utils';
+
 
 const Login = ({setter}) => {
 
@@ -26,7 +28,7 @@ const Login = ({setter}) => {
 
       </form> 
 
-      <h2>Not a member? Create Account</h2>
+      <h2>Not a member? <Link to="/signup" id="accountCreateLink">Create Account</Link></h2>
     </div>
   )
 }
