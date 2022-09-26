@@ -21,8 +21,8 @@ function App(props) {
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route path='login' element = {<Login token={token} setToken={setToken} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-            <Route path='signup' element = {<Signup token={token} setToken={setToken} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path='login' element = {<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
+            <Route path='signup' element = {<Signup setToken={setToken} setLoggedIn={setLoggedIn} />} />
         </Routes>
       </div>
     </BrowserRouter>
