@@ -5,10 +5,9 @@ import { deleteUser } from "../utils";
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
-function Profile({loggedIn, setLoggedIn, user, email}) {
+function Profile({loggedIn, token, setLoggedIn, user, email}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
-    const [token, setToken] = useState("")
 
     const toggleModal = () => {
         console.log(loggedIn)
