@@ -7,7 +7,7 @@ import Home from "./pages/home"
 import Profile from './pages/profile';
 import Login from "./pages/login"
 import Signup from "./pages/signUp"
-
+import Browse from "./pages/browse"
 
 function App(props) {
   const [token, setToken] = useState("")
@@ -25,6 +25,7 @@ function App(props) {
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} email={email} />} />
             <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} />} />
             <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
+            <Route path='/browse' element = {<Browse />} />
         </Routes>
       </div>
     </BrowserRouter>
