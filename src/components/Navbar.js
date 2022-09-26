@@ -6,7 +6,7 @@ import { Sidebar } from './sidebar';
 import '../css/Navbar.css';
 // import { IconContext } from 'react-icons';
 
-function Navbar() {
+function Navbar({admin}) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
