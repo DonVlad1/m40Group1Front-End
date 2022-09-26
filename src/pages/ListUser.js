@@ -3,9 +3,7 @@ import { listUsers } from '../utils';
 
 function ListUser() {
     const [usernames, setUsernames] = useState()
-    const [show, setShow] = useState(false);
-    const [clicked, setClicked] = useState(false);
-
+    
     const loadUsernames = async () => {
         let users = await listUsers()
         setUsernames(users)
