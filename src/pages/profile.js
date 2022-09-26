@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import '../css/profile.css';
 import { deleteUser } from "../utils";
 
-function Profile({loggedIn, setLoggedIn}) {
+function Profile({loggedIn, setLoggedIn, user, email}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
     const [token, setToken] = useState("")
@@ -26,23 +26,25 @@ function Profile({loggedIn, setLoggedIn}) {
     
 
     return (
-        <>
+        <div id="profile-container">
             {!loggedIn ? 
-            (<div> 
-                <h1>You are not logged in</h1>
+            (<div>
+                <div id="login-message">
+                <h1>You are currently not logged in</h1>
+                <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
+                </div>
             </div>) : 
             (<div>
-            <div id="postCreateContent" className="flexbox">
+            <div id="postCreateContent">
                 <form id="postCreateForm">
                     <input />
                 </form>
-            </div>
                 <h1 className="profile">My Profile</h1>
                 <div className="img-container"></div>
                 <div className="profile-info">
-                    <h3>Username</h3>
+                    <h3>{user}</h3>
                     <h3>display name</h3>
-                    <h3>Email</h3>
+                    <h3>{email}</h3>
                     <h3>location</h3>
                 </div>
                 <h1 className="bio-title">Bio</h1>
@@ -56,14 +58,15 @@ function Profile({loggedIn, setLoggedIn}) {
                 <div className="profile-btns">
                 <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
                 <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
+                </div>
                 {modal && (
                           <div className="modal">
                           <div className="overlay" onClick={toggleModal}></div>
                           <div className="modal-content">
                           <img className="modalCat"/>
+                          <button className="closeBtn" onClick={toggleModal}>X</button>
                             <h2>Are you sure you want to delete your account?</h2>
                             <button className="delete-acc" onClick={() => submitHandler2() }><span>DELETE ACCOUNT</span></button>
-                            <button className="cloaseBtn" onClick={toggleModal}>Close</button>
                           </div>
                         </div>
                 )}
@@ -71,7 +74,7 @@ function Profile({loggedIn, setLoggedIn}) {
 
             </div>)}
 
-        </>
+        </div>
     )
 }
 
