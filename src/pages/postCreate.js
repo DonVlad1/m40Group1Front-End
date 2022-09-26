@@ -1,30 +1,43 @@
 import React, { useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import '../css/postCreate.css';
+import { postCreate } from '../utils';
 
-function PostCreate({setter}) {
+
+
+function PostCreate() {
+    const [title, setTitle] = useState()
     const [price, setPrice] = useState()
     const [make, setMake] = useState()
     const [model, setModel] = useState()
-    const [type, setType] = useState()
-    const [drivechain, setDrivechain] = useState()
-    const [year, setYear] = useState()
+    const [type, setType] = useState("Coupe")
+    const [drivechain, setDrivechain] = useState("FWD")
+    const [yearString, setYearString] = useState(2022)
     const [miles, setMiles] = useState()
     const [colour, setColour] = useState()
-    const [doors, setDoors] = useState()
+    const [doors, setDoors] = useState("2")
     const [location, setLocation] = useState()
-    const [wiz, setWiz] = useState()
+    const [wiz, setWiz] = useState("wiz is a stretch goal, this is a default state")
 
     const submitHandler = async (event) => {
         event.preventDefault()
-        await postCreate(setter, price, make, model, type, drivechain, year, miles, colour, doors, location, wiz)
+        console.log("postCreate.js submitHadler", title)
+        
+        const year = Number(yearString)
+
+        await postCreate(title, price, make, model, type, drivechain, year, miles, colour, doors, location, wiz)
+    }
+
+    const selectHandler = (setState, e) => {
+        e.preventDefault()
+        console.log(e.target.value)
     }
 
     const editorRef = useRef(null);
 
     const log = () => {
     if (editorRef.current) {
-        console.log(editorRef.current.getContent());
+        editorRef.current.getContent()
     }
     };
 
@@ -32,7 +45,7 @@ function PostCreate({setter}) {
         <div id="postCreateContent" className="flexbox">
             <form id="postCreateForm" className="flexbox" onSubmit = {submitHandler}>
                 <label htmlFor="title">Title</label>
-                <input type="text" name="title" />
+                <input type="text" name="title" onChange={(event) => setTitle(event.target.value)} />
 
                 <div id='postCreateColumnHolder' className='flexbox'>
                     <div className='postCreateColumns flexbox'>
@@ -62,7 +75,7 @@ function PostCreate({setter}) {
 
                     <div className='postCreateColumns flexbox'>
                         <label htmlFor="year">Year</label>
-                        <select name="year" onChange={(event) => setYear(event.target.value)}>
+                        <select name="year" onChange={(event) => setYearString(event.target.value)}>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
@@ -89,7 +102,7 @@ function PostCreate({setter}) {
 
                 <label htmlFor="text">History/General Info</label>
                 <div id='wiz'>
-                    <Editor onChange={(event) => setWiz(event.target.value)}
+                    {/* <Editor onChange={(event) => setWiz(event.target.value)}
                         onInit={(evt, editor) => editorRef.current = editor}
                         init={{
                         height: 500,
@@ -105,10 +118,10 @@ function PostCreate({setter}) {
                         'removeformat | help',
                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                         }}
-                    />
+                    /> */}
                 </div>
 
-                <button onClick={log}>Submit</button>
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )
