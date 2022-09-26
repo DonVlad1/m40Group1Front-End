@@ -6,7 +6,7 @@ import { Sidebar } from './sidebar';
 import '../css/Navbar.css';
 // import { IconContext } from 'react-icons';
 
-function Navbar({admin}) {
+function Navbar({admin, loggedIn}) {
 	const [sidebar, setSidebar] = useState(false);
 
 	const showSidebar = () => setSidebar(!sidebar);
@@ -51,6 +51,17 @@ function Navbar({admin}) {
 							<span>LOGIN/SIGN UP</span>
 						</Link>
 					</li>
+					{admin ? (
+						<li className="nav-text">
+							<Link to='/users'>
+								<span>LIST USERS</span>
+							</Link>
+						</li>
+					): (
+						<> 
+						
+						</>
+					)}
 					
 					{/* {Sidebar.map((item, index) => {
 						return(

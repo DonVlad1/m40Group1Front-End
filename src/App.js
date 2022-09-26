@@ -18,7 +18,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="App flexbox">
-        <Navbar admin={admin}/>
+        <Navbar admin={admin} loggedIn={loggedIn}/>
         <Routes>
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
