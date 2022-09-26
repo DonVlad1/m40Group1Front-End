@@ -8,6 +8,7 @@ import Profile from './pages/profile';
 import Login from "./pages/login"
 import Signup from "./pages/signUp"
 import Browse from "./pages/browse"
+import ListUser from './pages/ListUser';
 
 function App(props) {
   const [token, setToken] = useState("")
@@ -26,6 +27,7 @@ function App(props) {
             <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} />} />
             <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
             <Route path='/browse' element = {<Browse />} />
+            <Route path='/users' element = {<ListUser />} />
         </Routes>
       </div>
     </BrowserRouter>
