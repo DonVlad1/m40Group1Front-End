@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import '../css/signUp.css';
 import { signup } from '../utils';
 
-const Signup = ({setter, setLoggedIn, setToken}) => {
+const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
 
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
