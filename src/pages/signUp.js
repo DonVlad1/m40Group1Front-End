@@ -12,7 +12,8 @@ const Signup = ({setter, setLoggedIn, setToken}) => {
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    await signup(username, email, password, phone, setter, setLoggedIn, setToken)
+    let token = await signup(username, email, password, phone, setter, setLoggedIn)
+    setToken(token)
   }
 
   return (
