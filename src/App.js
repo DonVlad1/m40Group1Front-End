@@ -12,6 +12,7 @@ import Signup from "./pages/signUp"
 function App(props) {
   const [token, setToken] = useState("")
   const [loggedIn, setLoggedIn] = useState(true)
+  const [user, setUser] = useState()
     
   return (
     <BrowserRouter>
@@ -21,8 +22,8 @@ function App(props) {
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route path='login' element = {<Login setToken={setToken} setLoggedIn={setLoggedIn} />} />
-            <Route path='signup' element = {<Signup setToken={setToken} setLoggedIn={setLoggedIn} />} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
+            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
         </Routes>
       </div>
     </BrowserRouter>
