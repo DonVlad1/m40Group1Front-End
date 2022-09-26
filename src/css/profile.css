@@ -96,6 +96,26 @@ body {
     background-color: #f0eeee;
   }
 
+  .save {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+  }
+
+  .save:hover {
+    color: #008037;
+  }
+
+  .edit {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+  }
+
+  .edit:hover {
+    color: #008037;
+  }
+
   .items-title {
     position: absolute;
     top: 100px;
@@ -142,6 +162,16 @@ body {
   
   .list-items__input:focus + .search__button {
     background-color: #f0eeee;
+  }
+
+  .add {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+  }
+
+  .add:hover {
+    color: #008037;
   }
 
 .profile-btns{
