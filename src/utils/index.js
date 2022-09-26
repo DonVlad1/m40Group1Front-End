@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setToken, setLoggedIn) =>
+export const login = async (username, password, setter, setLoggedIn) =>
 {
     console.log(username)
     try
@@ -15,11 +15,11 @@ export const login = async (username, password, setter, setToken, setLoggedIn) =
         })
         const data = await response.json()
         if(data.username && data.token){
-            setToken(data.token)
             setter(data.username)
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
+            return data.token
         } else {
             console.log(data)
             console.log(`Account: ${data.username} cannot be found`)
@@ -33,7 +33,7 @@ export const login = async (username, password, setter, setToken, setLoggedIn) =
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setToken) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn) =>
 {
     try
     {
@@ -50,9 +50,9 @@ export const signup = async (username, email, password, phone, setter, setLogged
         const data = await response.json()
         if(data.username){
             console.log(`You logged in as Account: ${data.username}`)
-            setToken(data.token)
             setLoggedIn(true)
             setter(data.username)
+            return data.token
         } else {
             console.log(`Account Already exists!`)
             setLoggedIn(false)
