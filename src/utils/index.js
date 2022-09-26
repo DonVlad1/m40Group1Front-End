@@ -42,7 +42,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2) =>
 {
     try
     {
@@ -60,6 +60,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
         if(data.username){
             console.log(`You logged in as Account: ${data.username}`)
             setLoggedIn(true)
+            setter2(data.email)
             setter(data.username)
             return data.token
         } else {
