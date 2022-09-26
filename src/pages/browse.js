@@ -22,7 +22,7 @@ const Browse = () => {
       </div>
 
       <div class="carsContainer">
-        <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
+        <BrowseCard title='Nissan' info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="land rover" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
