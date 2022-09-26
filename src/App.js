@@ -1,4 +1,5 @@
 import './css/App.css';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import PostCreate from "./pages/postCreate"
@@ -7,7 +8,12 @@ import Profile from './pages/profile';
 import Login from "./pages/login"
 import Signup from "./pages/signUp"
 
+
 function App(props) {
+  const [token, setToken] = useState("")
+  const [loggedIn, setLoggedIn] = useState(true)
+  const [user, setUser] = useState()
+    
   return (
     <BrowserRouter>
       <div className="App flexbox">
@@ -15,9 +21,9 @@ function App(props) {
         <Routes>
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
-            <Route path='/profile' element = {<Profile/>} />
-            <Route path='login' element = {<Login />} />
-            <Route path='signup' element = {<Signup />} />
+            <Route path='/profile' element = {<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
+            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} />} />
         </Routes>
       </div>
     </BrowserRouter>
