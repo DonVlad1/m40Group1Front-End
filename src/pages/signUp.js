@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import '../css/signUp.css';
 import { signup } from '../utils';
 
-const Signup = ({setter, setLoggedIn, setToken}) => {
+const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
 
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
@@ -12,7 +12,7 @@ const Signup = ({setter, setLoggedIn, setToken}) => {
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    let token = await signup(username, email, password, phone, setter, setLoggedIn)
+    let token = await signup(username, email, password, phone, setter, setLoggedIn, setter2)
     setToken(token)
   }
 
