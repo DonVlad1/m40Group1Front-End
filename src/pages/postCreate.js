@@ -21,18 +21,10 @@ function PostCreate() {
                         <input id="price" type="number" name="price" />
 
                         <label htmlFor="make">Make</label>
-                        <select name="make">
-                            <option value="Audi">Audi</option>
-                            <option value="Mercades">Mercades</option>
-                            <option value="Saab">Saab</option>
-                        </select>
+                        <input type="text" name="make" />
 
                         <label htmlFor="model">Model</label>
-                        <select name="model">
-                            <option value="Slk 400">Slk 400</option>
-                            <option value="Polo">Polo</option>
-                            <option value="Gold">Golf</option>
-                        </select>
+                        <input type="text" name="model" />
 
                         <label htmlFor="type">Type</label>
                         <select name="type">
