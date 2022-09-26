@@ -1,9 +1,11 @@
 .navbar {
   background-color: #2f3f5d;
   height: 5vh;
+  width: 100%;
 }
 
 .menu-bars {
+    float: right;
     font-size: 2rem;
     position: relative;
     top: 10px;
