@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin) =>
 {
     console.log(username)
     try
@@ -22,9 +22,11 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
             console.log(`You logged in as Account: ${data.username}`)
             if(data.username === "Admin"){
                 console.log(`You have logged in as an Admin`)
+                setAdmin(true)
                 return data.token
             }
             else {
+                setAdmin(false)
                 return data.token
             }
         } else {
