@@ -6,7 +6,7 @@
 export const Sidebar = [
   {
     title: 'BROWSE',
-    path: '/',
+    path: '/browse',
     // icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
