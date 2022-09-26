@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter) =>
+export const login = async (username, password, setter, setToken) =>
 {
     console.log(username)
     try
@@ -16,7 +16,12 @@ export const login = async (username, password, setter) =>
         const data = await response.json()
         console.log(data)
         console.log(`Account: ${data.username}`)
-        setter(data.username)
+        if(data.username && data.token){
+            setToken(data.token)
+            setter(data.username)
+            console.log(data)
+        }
+       
     }
     catch (error)
     {
