@@ -51,9 +51,11 @@ export const signup = async (username, email, password, phone, setter, setLogged
         if(data.username){
             console.log(`You logged in as Account: ${data.username}`)
             setToken(data.token)
+            setLoggedIn(true)
             setter(data.username)
         } else {
             console.log(`Account Already exists!`)
+            setLoggedIn(false)
         }
     }
     catch (error)
