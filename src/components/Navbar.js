@@ -36,28 +36,39 @@ function Navbar({admin, loggedIn}) {
 							<span>LIST A VEHICLE</span>
 						</Link>
 					</li>
-					<li className="nav-text">
-						<Link to='/products'>
-							<span>MY CART</span>
-						</Link>
-					</li>
+					{loggedIn ? (
+						<li className="nav-text">
+							<Link to='/products'>
+								<span>MY CART</span>
+							</Link>
+						</li>
+					) : (
+						<>
+						</>
+					)
+					}
 					<li className="nav-text">
 						<Link to='/profile'>
 							<span>MY PROFILE</span>
 						</Link>
 					</li>
-					<li className="nav-text">
-						<Link to='/login'>
-							<span>LOGIN/SIGN UP</span>
-						</Link>
-					</li>
+					{loggedIn ? (
+						<>
+						</>
+					) : (
+						<li className="nav-text">
+							<Link to='/login'>
+								<span>LOGIN/SIGN UP</span>
+							</Link>
+						</li>
+					)}
 					{admin ? (
 						<li className="nav-text">
 							<Link to='/users'>
 								<span>LIST USERS</span>
 							</Link>
 						</li>
-					): (
+					) : (
 						<> 
 						
 						</>
