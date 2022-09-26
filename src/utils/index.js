@@ -33,7 +33,7 @@ export const login = async (username, password, setter, setToken, setLoggedIn) =
     }
 }
 
-export const signup = async (username, email, password, phone, setter) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setToken) =>
 {
     try
     {
@@ -49,7 +49,8 @@ export const signup = async (username, email, password, phone, setter) =>
         })
         const data = await response.json()
         if(data.username){
-            console.log(`Account: ${data.username}`)
+            console.log(`You logged in as Account: ${data.username}`)
+            setToken(data.token)
             setter(data.username)
         } else {
             console.log(`Account Already exists!`)
