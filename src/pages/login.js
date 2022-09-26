@@ -4,14 +4,14 @@ import '../css/login.css';
 import { login } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
 
-const Login = ({setter}) => {
+const Login = ({setter, token, setToken, setLoggedIn}) => {
 
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    await login(username, password, setter)
+    await login(username, password, setter, token, setToken, setLoggedIn)
   }
 
   return (
