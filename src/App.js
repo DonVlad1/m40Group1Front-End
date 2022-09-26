@@ -12,7 +12,7 @@ import ListUser from './pages/ListUser';
 
 function App(props) {
   const [token, setToken] = useState("")
-  const [loggedIn, setLoggedIn] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState()
   const [email, setEmail] = useState()
   const [admin, setAdmin] = useState(false)    
