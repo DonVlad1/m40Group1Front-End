@@ -20,7 +20,13 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
-            return data.token
+            if(data.username === "Admin"){
+                console.log(`You have logged in as an Admin`)
+                return data.token
+            }
+            else {
+                return data.token
+            }
         } else {
             console.log(data)
             console.log(`Account: ${data.username} cannot be found`)
