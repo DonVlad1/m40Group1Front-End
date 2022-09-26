@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/login.css';
 import { login } from '../utils';
+import ProfileIcon from '../assets/account-circle.png'
 
 const Login = ({setter}) => {
 
@@ -15,6 +16,8 @@ const Login = ({setter}) => {
 
   return (
     <div id="logInContainer">
+
+      <img src={ProfileIcon} alt="profile icon" class="profileIcon"/>
 
       <h1>SIGN IN</h1>
 
