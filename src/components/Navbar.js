@@ -27,29 +27,29 @@ function Navbar({admin}) {
 					</li>
 					{/* ----------------- LIST OF PAGES -----------------*/}
 					<li className="nav-text">
-							<Link to='/browse'>
-								<span>BROWSE</span>
-							</Link>
+						<Link to='/browse'>
+							<span>BROWSE</span>
+						</Link>
 					</li>
 					<li className="nav-text">
-							<Link to='/postCreate'>
-								<span>LIST A VEHICLE</span>
-							</Link>
+						<Link to='/postCreate'>
+							<span>LIST A VEHICLE</span>
+						</Link>
 					</li>
 					<li className="nav-text">
-							<Link to='/products'>
-								<span>MY CART</span>
-							</Link>
+						<Link to='/products'>
+							<span>MY CART</span>
+						</Link>
 					</li>
 					<li className="nav-text">
-							<Link to='/profile'>
-								<span>MY PROFILE</span>
-							</Link>
+						<Link to='/profile'>
+							<span>MY PROFILE</span>
+						</Link>
 					</li>
 					<li className="nav-text">
-							<Link to='/login'>
-								<span>LOGIN/SIGN UP</span>
-							</Link>
+						<Link to='/login'>
+							<span>LOGIN/SIGN UP</span>
+						</Link>
 					</li>
 					
 					{/* {Sidebar.map((item, index) => {
