@@ -65,7 +65,54 @@ export const signup = async (username, email, password, phone, setter, setLogged
     }
 }
 
+export const postCreate = async (title, price, make, model, type, drivechain, yearString, miles, colour, doors, location, wiz) => {
+    const testObject = {
+        user_id: 0,
+        title: title,
+        price: price,
+        make: make,
+        model: model,
+        type: type,
+        drivechain: drivechain,
+        manufacture_year: yearString,
+        miles: miles,
+        colour: colour,
+        num_doors: doors,
+        location: location,
+        text: wiz
+    }
+    console.log("post create utils/index.js; ", testObject)
 
+    // const response = await fetch("http://localhost:5000/health")
+
+    try {
+        const response = await fetch("http://localhost:5000/posts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                "user_id": 0,
+                "title": title,
+                "price": price,
+                "make": make,
+                "model": model,
+                "type": type,
+                "drivechain": drivechain,
+                "manufacture_year": yearString,
+                "miles": miles,
+                "colour": colour,
+                "num_doors": doors,
+                "location": location,
+                "text": wiz
+            })
+        })
+        console.log("post create response; ", response)
+        const data = await response.json()
+        console.log(data)
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
 
 // ----------------------------- read -----------------------------
 
