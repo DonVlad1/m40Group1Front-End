@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setToken) =>
+export const login = async (username, password, setter, setToken, setLoggedIn) =>
 {
     console.log(username)
     try
@@ -14,12 +14,16 @@ export const login = async (username, password, setter, setToken) =>
 
         })
         const data = await response.json()
-        console.log(data)
-        console.log(`Account: ${data.username}`)
         if(data.username && data.token){
             setToken(data.token)
             setter(data.username)
+            setLoggedIn(true)
             console.log(data)
+            console.log(`You logged in as Account: ${data.username}`)
+        } else {
+            console.log(data)
+            console.log(`Account: ${data.username} cannot be found`)
+            setLoggedIn(false)
         }
        
     }
