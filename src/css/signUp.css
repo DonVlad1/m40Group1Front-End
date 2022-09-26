@@ -2,14 +2,41 @@
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
+  background-color: #ebebeb;
+  padding: 10px;
 }
 
 #signUpForm {
   display: flex;
   flex-direction: column;
-  width: 30vw;
-  height: 50vh;
+  width: 600px;
+  height: 400px;
   padding: 10px;
+  text-align: center;
+  /* background-color: red; */
+}
+
+#signUpForm button {
+  background-color: #008037;
+  font-size: 1.4em;
+  color: white;
+  height: 75px;
+  width: 80%;
+  border-radius: 10px;
+  border-style: none;
+  align-self: center;
+}
+
+.signUpInput {
+  height: 70px;
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  border-style: none;
+  align-self: center;
+  text-align: center;
+  font-size: 1.5em;
 }
