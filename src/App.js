@@ -10,9 +10,9 @@ import Signup from "./pages/signUp"
 
 
 function App(props) {
-
-  const [loggedIn, setLoggedIn] = useState(true) 
-  
+  const [token, setToken] = useState("")
+  const [loggedIn, setLoggedIn] = useState(true)
+    
   return (
     <BrowserRouter>
       <div className="App flexbox">
@@ -21,8 +21,8 @@ function App(props) {
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route path='login' element = {<Login />} />
-            <Route path='signup' element = {<Signup />} />
+            <Route path='login' element = {<Login token={token} setToken={setToken} />} />
+            <Route path='signup' element = {<Signup token={token} setToken={setToken} />} />
         </Routes>
       </div>
     </BrowserRouter>
