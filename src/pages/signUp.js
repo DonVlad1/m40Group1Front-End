@@ -20,7 +20,7 @@ const Signup = ({setter, setLoggedIn, setToken}) => {
   return (
     <div id="signUpContainer">
 
-      <img src={ProfileIcon} alt="profile icon" />
+      <img src={ProfileIcon} alt="profile icon"/>
 
       <form onSubmit = {submitHandler} id="signUpForm">
         <h1>SIGN UP</h1>
