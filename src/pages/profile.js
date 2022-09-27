@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import '../css/profile.css';
 import { deleteUser } from "../utils";
+import { FaUserCircle } from "react-icons/fa"
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
@@ -43,27 +44,30 @@ function Profile({loggedIn, setLoggedIn, user, email}) {
             (<div>
             <div id="postCreateContent">
                 <form id="postCreateForm">
-                    <input />
+                    <input type="text" className="search_input" placeholder="Search"/>
                 </form>
-                <h1 className="profile">My Profile</h1>
-                <div className="img-container"></div>
                 <div className="profile-info">
-                    <h3>{user}</h3>
-                    <h3>display name</h3>
-                    <h3>{email}</h3>
-                    <h3>location</h3>
+                <h1 className="profile">MY PROFILE</h1>
+                <div className="user-icon"><FaUserCircle/></div>
+                    <h1>{user}</h1>
+                    <h1>display name</h1>
+                    <h1>{email}</h1>
+                    <h1>location</h1>
                 </div>
-                <h1 className="bio-title">Bio <button className="save"><MdSaveAlt/></button> <button className="edit"><AiTwotoneEdit/></button></h1>
-                <div class="bio">
-                <input type="text" class="bio__input" placeholder="Enter a bio"/>
-                </div>
-                <h1 className="items-title">My Items <button className="add" onClick={() => listPage()}><MdLibraryAdd/></button></h1>
+                <div className="random">
+                <br></br> <br></br> <br></br> <br></br>
                 <div class="list-items">
+                <h1>MY ITEMS<button className="add" onClick={() => listPage()}><MdLibraryAdd/></button></h1>
                 <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
                 </div>
+                <div class="bio">
+                <h1>BIO<button className="save"><MdSaveAlt/></button> <button className="edit"><AiTwotoneEdit/></button></h1>
+                <input type="text" class="bio__input" placeholder="Enter a bio"/>
+                </div>
+                </div>
                 <div className="profile-btns">
-                <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
-                <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
+                    <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
+                    <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
                 </div>
                 {modal && (
                           <div className="modal">
