@@ -24,11 +24,11 @@ function App(props) {
         <Navbar admin={admin} loggedIn={loggedIn}/>
         <Routes>
             <Route path='/' element = {<Home />} />
-            <Route path='/postCreate' element = {<PostCreate />} />
+            <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} />} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone}/>} />
             <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} />} />
             <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} />} />
-            <Route path='/browse' element = {<Browse />} />
+            <Route path='/browse' element = {<Browse loggedIn={loggedIn} />} />
             <Route path='/users' element = {<ListUser />} />
         </Routes>
       </div>

@@ -20,6 +20,6 @@ body {
     justify-content: center;
     align-content: center;
 }
-*{
+body{
     overflow-x: hidden;
 }
