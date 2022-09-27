@@ -24,22 +24,21 @@ function PostCreate() {
         console.log("postCreate.js submitHadler", title)
         
         const year = Number(yearString)
+        const formatedModel = model.replace(" ", "-");
+        let priceFormat = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        priceFormat = "£" + priceFormat
 
-        await postCreate(title, price, make, model, type, drivechain, year, miles, colour, doors, location, wiz)
+        await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location, wiz)
+        window.location.href = "/browse"
     }
 
-    const selectHandler = (setState, e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-    }
+    // const editorRef = useRef(null);
 
-    const editorRef = useRef(null);
-
-    const log = () => {
-    if (editorRef.current) {
-        editorRef.current.getContent()
-    }
-    };
+    // const log = () => {
+    // if (editorRef.current) {
+    //     editorRef.current.getContent()
+    // }
+    // };
 
     return (
         <div id="postCreateContent" className="flexbox">
