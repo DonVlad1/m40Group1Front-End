@@ -18,9 +18,6 @@
 	/* width: 100%; */
 }
 
-*{
-	outline: 1px solid aquamarine;
-}
 .menu-bar-Div{
 	width: 10%;
 	display: flex;
@@ -55,7 +52,7 @@
 	align-content: flex-end;
 	align-items: flex-end;
 	width: 35em;
-	max-height: 2em;
+	max-height: 1.5em;
 	margin-bottom: 10px;
 }
 
