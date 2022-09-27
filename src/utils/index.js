@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin) =>
 {
     console.log(username)
     try
@@ -20,7 +20,15 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
-            return data.token
+            if(data.username === "Admin"){
+                console.log(`You have logged in as an Admin`)
+                setAdmin(true)
+                return data.token
+            }
+            else {
+                setAdmin(false)
+                return data.token
+            }
         } else {
             console.log(data)
             console.log(`Account: ${data.username} cannot be found`)
@@ -34,7 +42,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2) =>
 {
     try
     {
@@ -52,6 +60,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
         if(data.username){
             console.log(`You logged in as Account: ${data.username}`)
             setLoggedIn(true)
+            setter2(data.email)
             setter(data.username)
             return data.token
         } else {
