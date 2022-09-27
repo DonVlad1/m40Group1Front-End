@@ -15,7 +15,6 @@ function Profile({loggedIn, token, setLoggedIn, user, email, setAdmin}) {
       }
 
     const submitHandler2 = async (event) => {
-        event.preventDefault()
         await deleteUser(token)
       }
 
