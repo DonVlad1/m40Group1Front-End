@@ -5,9 +5,9 @@
     }
 }
 
-#postCreateContent {
+#postCreateContent2 {
     width: 100vw;
-    height: 92vh;
+    height: 89.5vh;
     background-color: #ebebeb;
 }
 
@@ -16,7 +16,7 @@
     margin: 1em 0;
 }
 
-#postCreateContent #postCreateForm {
+#postCreateContent2 #postCreateForm {
     width: 50vw;
     flex-direction: column;
     align-self: center;
