@@ -1,12 +1,13 @@
 #logInContainer {
-  height: 100vh;
+  height: 89.5vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
   background-color: #ebebeb;
-  padding: 10px;
+  /* padding-right: 10px;
+  padding-left: 10px; */
 }
 
 #loginForm {
@@ -41,14 +42,14 @@
   font-size: 1.5em;
 }
 
-h1 {
+/* h1 {
   margin-bottom: 10px;
   margin-top: 5px;
 }
 
 h2 {
   margin: 5px;
-}
+} */
 
 #accountCreateLink {
   color: #008037;

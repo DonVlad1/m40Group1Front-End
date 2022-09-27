@@ -48,7 +48,7 @@ function PostCreate({loggedIn}) {
     // };
 
     return (
-        <div id="postCreateContent" className="flexbox">
+        <div id="postCreateContent2" className="flexbox">
             {!loggedIn ? 
             (<div>
                 <div id="login-message">
