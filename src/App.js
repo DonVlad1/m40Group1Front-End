@@ -22,11 +22,11 @@ function App(props) {
         <Navbar admin={admin} loggedIn={loggedIn}/>
         <Routes>
             <Route path='/' element = {<Home />} />
-            <Route path='/postCreate' element = {<PostCreate />} />
+            <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} />} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} user={user} email={email} setAdmin={setAdmin} />} />
             <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} />} />
             <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} />} />
-            <Route path='/browse' element = {<Browse />} />
+            <Route path='/browse' element = {<Browse loggedIn={loggedIn} />} />
             <Route path='/users' element = {<ListUser />} />
         </Routes>
       </div>

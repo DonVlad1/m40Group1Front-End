@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import '../css/browse.css';
 import BrowseCard from "../components/BrowseCard";
 import { listPosts } from "../utils";
 
-const Browse = () => {
+const Browse = ({loggedIn}) => {
   const cameraAngle = ["01", "05", "09", "13", "17", "21", "22", "23", "25", "27", "28", "29", "51"]
 
 
@@ -23,6 +24,14 @@ const Browse = () => {
 
   return (
     <div>
+      {!loggedIn ? 
+        (<div>
+            <div id="login-message">
+            <h1>You are currently not logged in</h1>
+            <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
+            </div>
+        </div>) : 
+        (<div>
       <div class="search">
         <input type="text" className="search__input" placeholder="Search" onChange={(event) => setSearch(event.target.value)}/>
         <button className="search__button">
@@ -47,7 +56,7 @@ const Browse = () => {
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="vauxhall" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/> */}
       </div>
-
+      </div>)}
     </div>
 
   )
