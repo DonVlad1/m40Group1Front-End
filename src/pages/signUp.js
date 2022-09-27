@@ -2,9 +2,10 @@ import React, { useState } from "react"
 import '../css/signUp.css';
 import { signup } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
+import { useNavigate } from "react-router-dom";
 
 const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
-
+  const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
   const [phone, setPhone] = useState()
@@ -13,7 +14,7 @@ const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    let token = await signup(username, email, password, phone, setter, setLoggedIn, setter2)
+    let token = await signup(username, email, password, phone, setter, setLoggedIn, setter2, navigate)
     setToken(token)
   }
 
