@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate) =>
 {
     console.log(username)
     try
