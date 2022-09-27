@@ -14,8 +14,10 @@ function Profile({loggedIn, token, setLoggedIn, user, email, setAdmin}) {
         setModal(!modal)
       }
 
-    const submitHandler2 = async (event) => {
+    const confirmDelete = async () => {
         await deleteUser(token)
+        await setAdmin(false)
+        await navigate("/login")
       }
 
     const logoutFunc = async () => {
@@ -71,7 +73,7 @@ function Profile({loggedIn, token, setLoggedIn, user, email, setAdmin}) {
                           <img className="modalCat"/>
                           <button className="closeBtn" onClick={toggleModal}>X</button>
                             <h2>Are you sure you want to delete your account?</h2>
-                            <button className="delete-acc" onClick={() => submitHandler2() }><span>DELETE ACCOUNT</span></button>
+                            <button className="delete-acc" onClick={() => confirmDelete() }><span>DELETE ACCOUNT</span></button>
                           </div>
                         </div>
                 )}
