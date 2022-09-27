@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate) =>
 {
     console.log(username)
     try
@@ -23,10 +23,12 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
             if(data.username === "Admin"){
                 console.log(`You have logged in as an Admin`)
                 setAdmin(true)
+                await navigate("/profile")
                 return data.token
             }
             else {
                 setAdmin(false)
+                await navigate("/profile")
                 return data.token
             }
         } else {
@@ -42,7 +44,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate) =>
 {
     try
     {
@@ -62,6 +64,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setLoggedIn(true)
             setter2(data.email)
             setter(data.username)
+            navigate("/profile")
             return data.token
         } else {
             console.log(`Account Already exists!`)

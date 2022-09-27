@@ -5,7 +5,7 @@ import { deleteUser } from "../utils";
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
-function Profile({loggedIn, token, setLoggedIn, user, email}) {
+function Profile({loggedIn, token, setLoggedIn, user, email, setAdmin}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
 
@@ -14,14 +14,16 @@ function Profile({loggedIn, token, setLoggedIn, user, email}) {
         setModal(!modal)
       }
 
-    const submitHandler2 = async (event) => {
-        event.preventDefault()
+    const confirmDelete = async () => {
         await deleteUser(token)
+        await setAdmin(false)
+        await navigate("/login")
       }
 
     const logoutFunc = async () => {
         console.log("logged out")
         await setLoggedIn(false)
+        await setAdmin(false)
         await navigate("/login")
     }
 
@@ -71,7 +73,7 @@ function Profile({loggedIn, token, setLoggedIn, user, email}) {
                           <img className="modalCat"/>
                           <button className="closeBtn" onClick={toggleModal}>X</button>
                             <h2>Are you sure you want to delete your account?</h2>
-                            <button className="delete-acc" onClick={() => submitHandler2() }><span>DELETE ACCOUNT</span></button>
+                            <button className="delete-acc" onClick={() => confirmDelete() }><span>DELETE ACCOUNT</span></button>
                           </div>
                         </div>
                 )}
