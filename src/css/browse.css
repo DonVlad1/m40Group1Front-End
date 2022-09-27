@@ -1,3 +1,7 @@
+#browseContainer {
+  background-color: #ebebeb;
+}
+
 .carsContainer {
   display: flex;
   flex-flow: row wrap;
