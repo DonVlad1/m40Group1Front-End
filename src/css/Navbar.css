@@ -1,89 +1,157 @@
+.TopBarNav{
+	/* display: flex;
+	flex-wrap: wrap; */
+	width: 100vw;
+	background-color: #2f3f5d;
+	overflow-x: none;
+}
 .navbar {
-  background-color: #2f3f5d;
-  height: 6vh;
-  width: 100%;
+	/* background-color: #c62e2e; */
+	/* min-height: 5vh; */
+	/* width: 100%; */
+	/* position: relative; */
+	/* max-height: 15vh; */
+	display: flex;
+	width: 100vw;
+	flex-wrap: wrap;
+	margin: 10px;
+	/* width: 100%; */
 }
 
+*{
+	outline: 1px solid aquamarine;
+}
+.menu-bar-Div{
+	width: 10%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+}
 .menu-bars {
-    float: right;
-    font-size: 2rem;
-    position: relative;
-    top: 10px;
-    margin: 0;
-    padding-right: 15px;
-    background: none;
-    color: white;
+		/* float: right; */
+		font-size: 2rem;
+		/* position:absolute;
+		top: 20px;
+		right: 0em; */
+		margin: 0;
+		/* padding-right: 30px; */
+		background: none;
+		color: white;
+		background-color: #2f3f5d;
+}
+.topSearchBar {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	align-content: center;
+	align-items: center;
+	width: 70%;
+}
+.topSearchBar input {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	align-self: flex-end;
+	align-content: flex-end;
+	align-items: flex-end;
+	width: 35em;
+	max-height: 2em;
+	margin-bottom: 10px;
 }
 
-  .nav-menu {
-    background-color: #2f3f5d;
-    width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    transition: 850ms;
-    z-index: 1;
-    border-radius: 2px;
-    border: solid;
-    border-color: #1d2637;
-  }
-  
-  .nav-menu.active {
-    right: 0;
-    transition: 350ms;
-  }
-  
-  .nav-text {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    /* padding: 0; */
-    list-style: none;
-    height: 60px;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    font-size: 1.5em;
-  }
-  
-  .nav-text a {
-    text-decoration: none;
-    color: #f5f5f5;
-    /* font-size: 18px; */
-    text-align: center;
-    justify-content: flex-start;
-    margin-left: 20px; 
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    border-radius: 4px;
-  }
-  
-  .nav-text:hover {
-    background-color: #1d2637;
-    outline: 1px solid white;
-  }
-  
-  .nav-menu-items {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .navbar-toggle {
-    background-color: #1d2637;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
-  
-  span {
-    margin-left: 0;
-  }
+.menu-bars2 {
+	float: right;
+	font-size: 2rem;
+	position:absolute;
+	top: 25px;
+	margin: 0;
+	right: 0em;
+	padding-right: 40px;
+	background: none;
+	color: white;
+}
+.carLogoDiv{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-self: center;
+	align-items: center;
+	width: 20%;
+}
+.carLogoDiv img{
+	min-width: 8em;
+	max-width: 12em;
+}
+
+	.nav-menu {
+		background-color: #2f3f5d;
+		width: 250px;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		position: fixed;
+		top: 0;
+		right: -100%;
+		transition: 850ms;
+		z-index: 1;
+		border-radius: 2px;
+		border: solid;
+		border-color: #1d2637;
+	}
+	
+	.nav-menu.active {
+		right: 0;
+		transition: 350ms;
+	}
+	
+	.nav-text {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		/* padding: 0; */
+		list-style: none;
+		height: 60px;
+		margin-top: 2em;
+		margin-bottom: 2em;
+		font-size: 1.5em;
+	}
+	
+	.nav-text a {
+		text-decoration: none;
+		color: #f5f5f5;
+		/* font-size: 18px; */
+		text-align: center;
+		justify-content: flex-start;
+		margin-left: 20px; 
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0;
+		border-radius: 4px;
+	}
+	
+	.nav-text:hover {
+		background-color: #1d2637;
+		outline: 1px solid white;
+	}
+	
+	.nav-menu-items {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	
+	.navbar-toggle {
+		background-color: #1d2637;
+		width: 100%;
+		height: 80px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-start;
+	}
+	
+	span {
+		margin-left: 0;
+	}
