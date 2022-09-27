@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../css/browse.css';
 import BrowseCard from "../components/BrowseCard";
+import { listPosts } from "../utils";
 
 const Browse = () => {
 
   const [search, setSearch] = useState('');
   // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
-  const [cars, setCars] = useState([])
+  const [posts, setPosts] = useState([])
+
+  const loadPosts = async () => {
+    let posts = await listPosts()
+    setPosts(posts)
+    console.log(posts)
+  }
+
+  useEffect(() => {
+    loadPosts()
+  },[])
 
   return (
     <div>
@@ -22,14 +33,17 @@ const Browse = () => {
       </div>
 
       <div class="carsContainer">
-        <BrowseCard title='Nissan' info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
+        {posts?.map((post, index) => (
+          <BrowseCard key={index} title={post.title} info={`${post.make} ${post.model}`} price={post.price}/>
+        ))}
+        {/* <BrowseCard title='Nissan' info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="land rover" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="Nissan" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
-        <BrowseCard title="vauxhall" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
+        <BrowseCard title="vauxhall" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/> */}
       </div>
 
     </div>
