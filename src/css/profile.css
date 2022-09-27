@@ -1,5 +1,89 @@
+/* * {
+  border: 2px solid red;
+} */
+
 body {
     background-image: none !important;
+}
+
+.postCreateContent {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================== container top ==================== */
+
+.container-top {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-profile {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-profile-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-icon {
+  font-size: 150px;
+}
+
+.container-items {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-items-title-btn {
+  display: flex;
+}
+
+.items-title {
+  width: 12%;
+}
+
+/* ============================================================= */
+
+
+/* ========================== container bottom ==================== */
+
+.container-bottom {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-bio {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-bio-title-btn {
+  display: flex;
+}
+
+.profile-btns {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ============================================================= */
+
+
+#postCreateForm {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .closeBtn {
@@ -27,38 +111,23 @@ body {
   background-color: #ebebeb;
 }
 
-.profile {
-  position: absolute;
-  top: 100px;
-  left: 90px;
-}
-
-.img-container {
-  border: 2px solid black;
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  top: 170px;
-  left: 90px;
-}
-
 .profile-info {
   position: absolute;
   top: 150px;
   left: 300px;
-}
-
-.bio-title {
-  position: absolute;
-  bottom: 200px;
-  left: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .bio {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    text-align: left;
   }
   
   .bio__input {
@@ -69,13 +138,10 @@ body {
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 30em;
-    height: 10em;
+    width: 90%;
+    height: 30vh;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
-    position: absolute;
-    bottom: 20px;
-    left: 70px;
   }
   
   .bio__input:hover, .search__input:focus {
@@ -99,7 +165,7 @@ body {
   .save {
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .save:hover {
@@ -109,7 +175,7 @@ body {
   .edit {
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .edit:hover {
@@ -117,16 +183,15 @@ body {
   }
 
   .items-title {
-    position: absolute;
-    top: 100px;
-    left: 600px;
-  }
+    justify-content: flex-start;
+  } 
 
   .list-items {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-end;
+    text-align: left;
   }
   
   .list-items__input {
@@ -137,13 +202,10 @@ body {
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 40em;
-    height: 10em;
+    width: 90%;
+    height: 30vh;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
-    position: absolute;
-    top: 180px;
-    right: 70px;
   }
   
   .list-items__input:hover, .search__input:focus {
@@ -167,7 +229,7 @@ body {
   .add {
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .add:hover {
@@ -175,9 +237,11 @@ body {
   }
 
 .profile-btns{
-    position: absolute;
+    display: flex;
+    flex-direction: row;
+    /* position: absolute;
     bottom: 20px;
-    right: 30px;
+    right: 30px;  */
 }
 
 .delete-acc {
@@ -186,12 +250,10 @@ body {
     border: none;
     background: #ad1e1e;
     color: white;
-    font-family: inherit;
     text-align: center;
     font-size: 13px;
-    /* box-shadow: 0px 14px 56px -11px #ad1e1e; */
-    width: 15em;
-    height: 3em;
+    width: 50%;
+    height: 75px;
     padding: 1em;
     transition: all 0.4s;
     cursor: pointer;
@@ -228,12 +290,10 @@ body {
     border: none;
     background: #008037;
     color: white;
-    font-family: inherit;
     text-align: center;
     font-size: 13px;
-    /* box-shadow: 0px 14px 56px -11px #1875FF; */
-    width: 15em;
-    height: 3em;
+    width: 50%;
+    height: 75px;
     margin-right: 15px;
     padding: 1em;
     transition: all 0.4s;
