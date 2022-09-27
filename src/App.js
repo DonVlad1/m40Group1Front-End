@@ -15,7 +15,9 @@ function App(props) {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState()
   const [email, setEmail] = useState()
-  const [admin, setAdmin] = useState(false)    
+  const [admin, setAdmin] = useState(false)   
+  const [phone, setPhone ] = useState() 
+
   return (
     <BrowserRouter>
       <div className="App flexbox">
@@ -23,8 +25,8 @@ function App(props) {
         <Routes>
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate />} />
-            <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} user={user} email={email} setAdmin={setAdmin} />} />
-            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} />} />
+            <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone}/>} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} />} />
             <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} />} />
             <Route path='/browse' element = {<Browse />} />
             <Route path='/users' element = {<ListUser />} />

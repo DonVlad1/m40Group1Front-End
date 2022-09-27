@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate, setter3) =>
 {
     console.log(username)
     try
@@ -17,6 +17,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
         if(data.username && data.token){
             setter(data.username)
             setter2(data.email)
+            setter3(data.phone)
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
@@ -163,7 +164,7 @@ export const listPosts = async (setter) => {
 
 // ----------------------------- update -----------------------------
 
-export const updateName = async ( token, username ) => {
+export const updateName = async ( token, username, setUser ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editname/`, {
             method:"PUT",
@@ -176,6 +177,7 @@ export const updateName = async ( token, username ) => {
             })
         })
         const data = await response.json()
+        setUser(data.username)
         console.log(data)
 
     } catch (error) {
@@ -184,7 +186,7 @@ export const updateName = async ( token, username ) => {
 
 }
 
-export const updateEmail = async ( token, email ) => {
+export const updateEmail = async ( token, email, setEmail ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editemail/`, {
             method:"PUT",
@@ -197,6 +199,7 @@ export const updateEmail = async ( token, email ) => {
             })
         })
         const data = await response.json()
+        setEmail(data.email)
         console.log(data)
 
     } catch (error) {
@@ -227,7 +230,7 @@ export const updatePassword = async ( token, password ) => {
 
 }
 
-export const updatePhone= async ( token, phone ) => {
+export const updatePhone= async ( token, phone, setPhone ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editphone/`, {
             method:"PUT",
@@ -240,6 +243,7 @@ export const updatePhone= async ( token, phone ) => {
             })
         })
         const data = await response.json()
+        setPhone(data.phone)
         console.log(`Your has been updated: ${phone}`)
         console.log(data)
 
