@@ -11,7 +11,7 @@ const BrowseCard = ({title, info, price, imageSource}) => {
   return (
     <div class="carCard">
       <img src={imageSource} alt="image of car" class="carImage"/>
-      <h2>{title}</h2>
+      <h2 className='carTitle'>{title}</h2>
       <h2>{info}</h2>
       <h2>{price}</h2>
       <button class="addCartBtn" onClick={addToCart}>Add to Cart</button>

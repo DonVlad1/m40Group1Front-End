@@ -4,6 +4,8 @@ import BrowseCard from "../components/BrowseCard";
 import { listPosts } from "../utils";
 
 const Browse = () => {
+  const cameraAngle = ["01", "05", "09", "13", "17", "21", "22", "23", "25", "27", "28", "29", "51"]
+
 
   const [search, setSearch] = useState('');
   // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
@@ -34,7 +36,7 @@ const Browse = () => {
 
       <div class="carsContainer">
         {posts?.map((post, index) => (
-          <BrowseCard key={index} title={post.title} info={`${post.make} ${post.model}`} price={post.price}/>
+          <BrowseCard key={index} title={post.title} info={`${post.make} ${post.model}`} price={post.price} imageSource={`https://cdn-08.imagin.studio/getImage?&customer=gbmarkmccarthycompany&make=${post.make}&modelFamily=${post.model}&angle=${cameraAngle[Math.floor(Math.random() * cameraAngle.length)]}`}/>
         ))}
         {/* <BrowseCard title='Nissan' info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
         <BrowseCard title="land rover" info="extra info" price="£21,395" imageSource={"https://via.placeholder.com/400x300"}/>
