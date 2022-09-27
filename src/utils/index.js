@@ -23,10 +23,12 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
             if(data.username === "Admin"){
                 console.log(`You have logged in as an Admin`)
                 setAdmin(true)
+                await navigate("/profile")
                 return data.token
             }
             else {
                 setAdmin(false)
+                await navigate("/profile")
                 return data.token
             }
         } else {
