@@ -12,8 +12,15 @@
 }
 
 .carImage {
-  height: 300px;
   width: 400px;
+  align-self: center;
+}
+
+.carTitle {
+  width: 15em;
+}
+
+.carCard h2 {
   align-self: center;
 }
 

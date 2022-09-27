@@ -1,11 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
 import '../css/postCreate.css';
 import { postCreate } from '../utils';
 
 
 
-function PostCreate() {
+function PostCreate({loggedIn}) {
     const [title, setTitle] = useState()
     const [price, setPrice] = useState()
     const [make, setMake] = useState()
@@ -24,25 +25,32 @@ function PostCreate() {
         console.log("postCreate.js submitHadler", title)
         
         const year = Number(yearString)
+        const formatedModel = model.replace(" ", "-");
+        let priceFormat = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        priceFormat = "£" + priceFormat
 
-        await postCreate(title, price, make, model, type, drivechain, year, miles, colour, doors, location, wiz)
+        await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location, wiz)
+        window.location.href = "/browse"
     }
 
-    const selectHandler = (setState, e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-    }
+    // const editorRef = useRef(null);
 
-    const editorRef = useRef(null);
-
-    const log = () => {
-    if (editorRef.current) {
-        editorRef.current.getContent()
-    }
-    };
+    // const log = () => {
+    // if (editorRef.current) {
+    //     editorRef.current.getContent()
+    // }
+    // };
 
     return (
         <div id="postCreateContent" className="flexbox">
+            {!loggedIn ? 
+            (<div>
+                <div id="login-message">
+                <h1>You are currently not logged in</h1>
+                <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
+                </div>
+            </div>) :
+            (<div>
             <form id="postCreateForm" className="flexbox" onSubmit = {submitHandler}>
                 <label htmlFor="title">Title</label>
                 <input type="text" name="title" onChange={(event) => setTitle(event.target.value)} />
@@ -123,6 +131,7 @@ function PostCreate() {
 
                 <button type='submit'>Submit</button>
             </form>
+            </div>)}
         </div>
     )
 }
