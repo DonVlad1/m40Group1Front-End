@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import '../css/signUp.css';
 import { signup } from '../utils';
+import ProfileIcon from '../assets/account-circle.png'
 
 const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
 
@@ -19,17 +20,19 @@ const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
   return (
     <div id="signUpContainer">
 
+      <img src={ProfileIcon} alt="profile icon"/>
+
       <form onSubmit = {submitHandler} id="signUpForm">
-        <h1>Sign Up</h1>
-        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username:"/>
+        <h1>SIGN UP</h1>
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" class="signUpInput"/>
 
-        <input onChange={(event) => setEmail(event.target.value)} placeholder="Contact Email:"/>
+        <input onChange={(event) => setEmail(event.target.value)} placeholder="Contact Email" class="signUpInput"/>
 
-        <input onChange={(event) => setPhone(event.target.value)} placeholder="Phone Number:"/>
+        <input onChange={(event) => setPhone(event.target.value)} placeholder="Phone Number" class="signUpInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password:"/>
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="signUpInput"/>
 
-        <button type="submit">Create Account</button>
+        <button type="submit">CREATE ACCOUNT</button>
     
       </form> 
 
