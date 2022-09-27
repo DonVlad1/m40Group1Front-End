@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../css/login.css';
 import { login } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
 
-const Login = ({setter, setToken, setLoggedIn, setter2}) => {
-
+const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin}) => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    let token = await login(username, password, setter, setLoggedIn, setter2)
+    let token = await login(username, password, setter, setLoggedIn, setter2, setAdmin, navigate)
     setToken(token)
   }
 

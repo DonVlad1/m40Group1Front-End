@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate) =>
 {
     console.log(username)
     try
@@ -20,7 +20,17 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
-            return data.token
+            if(data.username === "Admin"){
+                console.log(`You have logged in as an Admin`)
+                setAdmin(true)
+                await navigate("/profile")
+                return data.token
+            }
+            else {
+                setAdmin(false)
+                await navigate("/profile")
+                return data.token
+            }
         } else {
             console.log(data)
             console.log(`Account: ${data.username} cannot be found`)
@@ -34,7 +44,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2) =>
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate) =>
 {
     try
     {
@@ -52,7 +62,9 @@ export const signup = async (username, email, password, phone, setter, setLogged
         if(data.username){
             console.log(`You logged in as Account: ${data.username}`)
             setLoggedIn(true)
+            setter2(data.email)
             setter(data.username)
+            navigate("/profile")
             return data.token
         } else {
             console.log(`Account Already exists!`)
@@ -131,6 +143,21 @@ export const listUsers = async (setter) =>
     catch (error) 
     {
 
+    }
+}
+
+export const listPosts = async (setter) => {
+    try {
+        const response = await fetch("http://localhost:5000/posts", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        return response.json()
+    }
+    catch (error) {
+        console.log(error)
     }
 }
 
