@@ -5,7 +5,7 @@ import { deleteUser } from "../utils";
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
-function Profile({loggedIn, token, setLoggedIn, user, email}) {
+function Profile({loggedIn, token, setLoggedIn, user, email, setAdmin}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
 
@@ -22,6 +22,7 @@ function Profile({loggedIn, token, setLoggedIn, user, email}) {
     const logoutFunc = async () => {
         console.log("logged out")
         await setLoggedIn(false)
+        await setAdmin(false)
         await navigate("/login")
     }
 
