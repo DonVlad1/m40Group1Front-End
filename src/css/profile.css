@@ -1,6 +1,84 @@
+/* * {
+  border: 2px solid red;
+} */
+
 body {
     background-image: none !important;
 }
+
+.postCreateContent {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================== container top ==================== */
+
+.container-top {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-profile {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-profile-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-icon {
+  font-size: 150px;
+}
+
+.container-items {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-items-title-btn {
+  display: flex;
+}
+
+.items-title {
+  width: 12%;
+}
+
+/* ============================================================= */
+
+
+/* ========================== container bottom ==================== */
+
+.container-bottom {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-bio {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-bio-title-btn {
+  display: flex;
+}
+
+.profile-btns {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ============================================================= */
+
 
 #postCreateForm {
   display: flex;
@@ -24,13 +102,6 @@ body {
   text-align: center;
 }
 
-.user-icon {
-  font-size: 150px;
-  position: relative;
-  top: 100px;
-  left: 90px;
-}
-
 #profile-container {
   height: 100vh;
   width: 100vw;
@@ -38,12 +109,6 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #ebebeb;
-}
-
-.profile {
-  position: absolute;
-  top: 100px;
-  left: 90px;
 }
 
 .profile-info {
@@ -73,8 +138,8 @@ body {
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 40%;
-    height: 200px;
+    width: 90%;
+    height: 30vh;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
   }
@@ -137,7 +202,7 @@ body {
     color: #646464;
     padding: 0.7rem 1rem;
     border-radius: 30px;
-    width: 50%;
+    width: 90%;
     height: 30vh;
     transition: all ease-in-out .5s;
     margin-right: -2rem;
@@ -174,9 +239,9 @@ body {
 .profile-btns{
     display: flex;
     flex-direction: row;
-    position: absolute;
+    /* position: absolute;
     bottom: 20px;
-    right: 30px; 
+    right: 30px;  */
 }
 
 .delete-acc {
@@ -187,7 +252,7 @@ body {
     color: white;
     text-align: center;
     font-size: 13px;
-    width: 80%;
+    width: 50%;
     height: 75px;
     padding: 1em;
     transition: all 0.4s;
@@ -227,7 +292,7 @@ body {
     color: white;
     text-align: center;
     font-size: 13px;
-    width: 80%;
+    width: 50%;
     height: 75px;
     margin-right: 15px;
     padding: 1em;

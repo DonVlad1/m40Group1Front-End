@@ -42,33 +42,73 @@ function Profile({loggedIn, setLoggedIn, user, email}) {
                 </div>
             </div>) : 
             (<div>
-            <div id="postCreateContent">
+            <div id="postCreateContent" className="postCreateContent">
                 <form id="postCreateForm">
                     <input type="text" className="search_input" placeholder="Search"/>
                 </form>
-                <div className="profile-info">
+                <div className="container-top">
+                    <div className="container-profile">
+                        <h1 className="container-profile-title">My Profile</h1>
+                        <div className="container-profile-info">
+                            <div className="user-icon">
+                                <FaUserCircle />
+                            </div>
+                            <div className="container-profile-details">
+                                <h1 className="profile-detail">{user}</h1>
+                                <h1 className="profile-detail">Display name</h1>
+                                <h1 className="profile-detail">{email}</h1>
+                                <h1 className="profile-detail">Location</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container-items">
+                        <div className="container-items-title-btn">
+                            <h1 className="items-title">My Items</h1>
+                            <button className="add" onClick={() => listPage()}><MdLibraryAdd /></button>
+                        </div>
+                        <div className="container-items-input">
+                            <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
+                        </div>
+                    </div>
+                </div>
+                <div className="container-bottom">
+                    <div className="container-bio">
+                        <div className="container-bio-title-btn">
+                            <h1 className="bio-title">Bio</h1>
+                            <button className="save" ><MdSaveAlt/></button>
+                            <button className="edit"><AiTwotoneEdit/></button>
+                        </div>
+                        <div className="container-bio-input">
+                            <input type="text" class="bio__input" placeholder="Enter a bio"/>
+                        </div>
+                    </div>
+                    <div className="profile-btns">
+                        <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
+                        <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
+                    </div>
+                </div>
+                {/* <div className="profile-info">
                 <h1 className="profile">MY PROFILE</h1>
                 <div className="user-icon"><FaUserCircle/></div>
                     <h1>{user}</h1>
                     <h1>display name</h1>
                     <h1>{email}</h1>
                     <h1>location</h1>
-                </div>
-                <div className="random">
-                <br></br> <br></br> <br></br> <br></br>
-                <div class="list-items">
+                </div> */}
+                {/* <div className="random"> */}
+                {/* <div class="list-items">
                 <h1>MY ITEMS<button className="add" onClick={() => listPage()}><MdLibraryAdd/></button></h1>
                 <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
-                </div>
-                <div class="bio">
+                </div> */}
+                {/* <div class="bio">
                 <h1>BIO<button className="save"><MdSaveAlt/></button> <button className="edit"><AiTwotoneEdit/></button></h1>
                 <input type="text" class="bio__input" placeholder="Enter a bio"/>
-                </div>
-                </div>
-                <div className="profile-btns">
+                </div> */}
+                {/* </div> */}
+                {/* <div className="profile-btns">
                     <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
                     <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
-                </div>
+                </div> */}
                 {modal && (
                           <div className="modal">
                           <div className="overlay" onClick={toggleModal}></div>
