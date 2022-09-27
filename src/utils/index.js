@@ -44,7 +44,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate) =>
 {
     try
     {
@@ -64,6 +64,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setLoggedIn(true)
             setter2(data.email)
             setter(data.username)
+            navigate("/profile")
             return data.token
         } else {
             console.log(`Account Already exists!`)
