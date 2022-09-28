@@ -164,7 +164,7 @@ export const listPosts = async (setter) => {
 
 // ----------------------------- update -----------------------------
 
-export const updateName = async ( token, username, setUser ) => {
+export const updateName = async ( token, username, setUser, setError ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editname/`, {
             method:"PUT",
@@ -177,8 +177,13 @@ export const updateName = async ( token, username, setUser ) => {
             })
         })
         const data = await response.json()
-        setUser(data.username)
-        console.log(data)
+        if(data.error === 1062){
+            setError("username already exists")
+        } else if (data.username){
+            setUser(data.username)
+            setError("")
+            console.log(data)
+        }
 
     } catch (error) {
         console.error(error)
@@ -186,7 +191,7 @@ export const updateName = async ( token, username, setUser ) => {
 
 }
 
-export const updateEmail = async ( token, email, setEmail ) => {
+export const updateEmail = async ( token, email, setEmail, setError ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editemail/`, {
             method:"PUT",
@@ -199,10 +204,17 @@ export const updateEmail = async ( token, email, setEmail ) => {
             })
         })
         const data = await response.json()
-        setEmail(data.email)
-        console.log(data)
+        console.log(data.error)
+        if(data.error === 1062){
+            setError("email already exists")
+        } else if (data.email){
+            setEmail(data.email)
+            setError("")
+            console.log(data)   
+        }
 
     } catch (error) {
+        console.log("in Catch block")
         console.error(error)
     }
 
