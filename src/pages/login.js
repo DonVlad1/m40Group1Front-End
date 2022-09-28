@@ -4,7 +4,7 @@ import '../css/login.css';
 import { login } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
 
-const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin, setter3}) => {
+const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin, setter3, darkMode}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
@@ -16,7 +16,7 @@ const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin, setter3}) => {
   }
 
   return (
-    <div id="logInContainer">
+    <div id="logInContainer" className={darkMode === true? "dark":"light"}>
 
       <img src={ProfileIcon} alt="profile icon" className="profileIcon"/>
 

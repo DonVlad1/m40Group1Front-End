@@ -4,11 +4,19 @@
 
 body {
   background-image: none !important;
+  display: flex;
+  padding-right: 25px;
+  justify-content: right;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: white;
+  transition: background 0.2s linear;
 }
 
 body .dark {
-  background-color: #636363;
-  color: white;
+  background-color: #36393f;
+  color: #8e9195;
 }
 
 body .light {
@@ -17,12 +25,71 @@ body .light {
 }
 
 #postCreateContent .dark {
-  background-color: #636363;
+  background-color: #36393f;
 }
 
 #postCreateContent .light {
   background-color: #ebebeb;
 }
+
+.ball-dark {
+  cursor: pointer;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  position: absolute;
+  top: 105px;
+  left: 15px;
+  border-radius: 50%;
+  transition: left 0.2s linear;
+}
+
+.ball-light {
+  cursor: pointer;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  position: absolute;
+  top: 105px;
+  left: 61px;
+  border-radius: 50%;
+  transition: left 0.2s linear;
+}
+
+
+/* .checkbox:checked + .label .ball{
+  transform: translateX(24px);
+} */
+
+.lightDark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: #1d2637;
+  opacity: 0.5;
+  border-radius: 20px;
+  width: 5.5em;
+  height: 2.5em;
+  position: absolute;
+  top: 101px;
+  left: 10px;
+  position: absolute;
+}
+
+#fa-moon {
+  margin-left: 12px;
+  color: rgb(109, 106, 106);
+  font-size: 1.2em;
+}
+
+#fa-sun {
+  margin-right: 12px;
+  color: yellow;
+  font-size: 1.2em;
+} 
 
 #postCreateContent {
 display: flex;
@@ -35,7 +102,7 @@ overflow: hidden;
 /* ========================== container top ==================== */
 
 .container-top {
-margin: 0em;
+margin-top: 1.5em;
 display: flex;
 justify-content: space-around;
 }
@@ -91,7 +158,7 @@ max-width: 20%;
 /* ========================== container bottom ==================== */
 
 .container-bottom {
-/* margin-top: 80px; */
+margin: 0;
 display: flex;
 justify-content: space-between;
 }
@@ -137,7 +204,8 @@ cursor: pointer;
 }
 
 #login-message {
-text-align: center;
+  height: 89.5vh;
+  text-align: center;
 }
 
 #profile-container {
@@ -146,7 +214,6 @@ width: 100vw;
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: #ebebeb;
 }
 
 .profile-info {
@@ -187,7 +254,7 @@ text-align: left;
   border-radius: 30px;
   width: 90%;
   height: 30vh;
-  transition: all ease-in-out .5s;
+  /* transition: all ease-in-out .5s; */
   margin-right: -2rem;
 }
 
@@ -241,17 +308,25 @@ text-align: left;
   text-align: left;
 }
 
+.darkerinput {
+  background-color: #40444b;
+  color: #8e9195;
+}
+
+.lighterinput {
+  background-color: white;
+  color: black;
+}
+
 .list-items__input {
   font-family: inherit;
   font-size: inherit;
-  background-color: white;
   border: none;
-  color: #646464;
   padding: 0.7rem 1rem;
   border-radius: 30px;
   width: 90%;
   height: 30vh;
-  transition: all ease-in-out .5s;
+  /* transition: all ease-in-out .5s; */
   margin-right: -2rem;
 }
 

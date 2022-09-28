@@ -5,6 +5,9 @@ import { deleteUser, updateEmail, updateName, updatePassword, updatePhone } from
 import { FaUserCircle } from "react-icons/fa"
 import { MdSaveAlt, MdLibraryAdd, MdConstruction } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import moonsvg from "./toggle1.svg";
+import sunsvg from "./toggle2.svg";
 
 function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone, darkMode, setDarkMode}) {
     const navigate = useNavigate();
@@ -75,9 +78,13 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
             (<div>
             <div id="postCreateContent" className={darkMode === true? "dark":"light"}>
             <div>
-                <img src="./toggle1.svg" className="fas fa-moon" alt="darkmode" onClick={(() => setDarkMode(true) )}></img>
-                <img src="./toggle2.svg" className="fas fa-sun" alt="lightmode" onClick={(() => setDarkMode(false) )}></img>
-                <div className='ball'/>
+                {/* <input type="checkbox" class="checkbox" id="checkbox"/>
+                <label for="checkbox" class="label"/> */}
+                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={(() => setDarkMode(!darkMode) )}/>
+                    <div className="lightDark">
+                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={(() => setDarkMode(!darkMode) )}/>
+                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={(() => setDarkMode(!darkMode) )}/>
+                    </div>
                     <label/>
                 </div>
                 {/* <form id="postCreateForm">
@@ -87,7 +94,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                     <div className="container-profile">
                       <div className="container-profile-title-btn">
                         <h1 className="container-profile-title">My Profile</h1>
-                        <button className="edit-profile" onClick={togalEditModal}><AiTwotoneEdit/></button>
+                        <button className={darkMode === true? "dark edit profile":"light edit profile"} onClick={togalEditModal}><AiTwotoneEdit/></button>
                       </div>
                         <div className="container-profile-info">
                             <div className="user-icon">
@@ -103,10 +110,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                     <div className="container-items">
                         <div className="container-items-title-btn">
                             <h1 className="items-title">My Items</h1>
-                            <button className="add" onClick={() => listPage()}><MdLibraryAdd /></button>
+                            <button className={darkMode === true? "dark add":"light add"} onClick={() => listPage()}><MdLibraryAdd /></button>
                         </div>
                         <div className="container-items-input">
-                            <input type="text" className="list-items__input" placeholder="You currently do not have any items for sale"/>
+                            <input type="text" className={darkMode === true? "darkerinput list-items__input":"lighterinput list-items__input"} placeholder="You currently do not have any items for sale"/>
                         </div>
                     </div>
                 </div>
@@ -114,11 +121,11 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                     <div className="container-bio">
                         <div className="container-bio-title-btn">
                             <h1 className="bio-title">Bio</h1>
-                            <button className="save" ><MdSaveAlt/></button>
-                            <button className="edit"><AiTwotoneEdit/></button>
+                            <button className={darkMode === true? "dark save":"light save"}><MdSaveAlt/></button>
+                            <button className={darkMode === true? "dark edit":"light edit"}><AiTwotoneEdit/></button>
                         </div>
                         <div className="container-bio-input">
-                            <input type="text" className="bio__input" placeholder="Enter a bio"/>
+                            <input type="text" className={darkMode === true? "darkerinput bio__input":"lighterinput bio__input"} placeholder="Enter a bio"/>
                         </div>
                     </div>
                     <div className="profile-btns">

@@ -4,7 +4,7 @@ import { signup } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
 import { useNavigate } from "react-router-dom";
 
-const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
+const Signup = ({setter, setLoggedIn, setToken, setter2, darkMode}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
@@ -19,7 +19,7 @@ const Signup = ({setter, setLoggedIn, setToken, setter2}) => {
   }
 
   return (
-    <div id="signUpContainer">
+    <div id="signUpContainer" className={darkMode === true? "dark":"light"}>
 
       <img src={ProfileIcon} alt="profile icon"/>
 
