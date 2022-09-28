@@ -18,15 +18,15 @@ const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin, setter3}) => {
   return (
     <div id="logInContainer">
 
-      <img src={ProfileIcon} alt="profile icon" class="profileIcon"/>
+      <img src={ProfileIcon} alt="profile icon" className="profileIcon"/>
 
       <h1>SIGN IN</h1>
 
       <form onSubmit = {submitHandler} id="loginForm">
         
-        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" class="loginInput"/>
+        <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" className="loginInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="loginInput"/>
+        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" className="loginInput"/>
 
         <button type="submit">SIGN IN</button>
 

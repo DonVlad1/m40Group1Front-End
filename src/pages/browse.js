@@ -32,7 +32,7 @@ const Browse = ({loggedIn}) => {
         </div>
       </div>) : 
       (<div>
-        <div class="search">
+        <div className="search">
           <input type="text" className="search__input" placeholder="Search" onChange={(event) => setSearch(event.target.value)}/>
           <button className="search__button">
           <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ const Browse = ({loggedIn}) => {
           </button>
         </div>
 
-        <div class="carsContainer">
+        <div className="carsContainer">
           {posts?.map((post, index) => (
             <BrowseCard key={index} title={post.title} info={`${post.make} ${post.model}`} price={post.price} imageSource={`https://cdn-08.imagin.studio/getImage?&customer=gbmarkmccarthycompany&make=${post.make}&modelFamily=${post.model}&angle=${cameraAngle[Math.floor(Math.random() * cameraAngle.length)]}`}/>
           ))}
