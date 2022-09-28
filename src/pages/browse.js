@@ -7,9 +7,7 @@ import { listPosts } from "../utils";
 const Browse = ({loggedIn}) => {
   const cameraAngle = ["01", "05", "09", "13", "17", "21", "22", "23", "25", "27", "28", "29", "51"]
 
-
-  const [search, setSearch] = useState('');
-  // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
+  // const [search, setSearch] = useState('');
   const [posts, setPosts] = useState([])
 
   const loadPosts = async () => {
