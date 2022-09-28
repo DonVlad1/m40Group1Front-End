@@ -6,12 +6,29 @@ body {
   background-image: none !important;
 }
 
+body .dark {
+  background-color: #636363;
+  color: white;
+}
+
+body .light {
+  background-color: #ebebeb;
+  color: black;
+}
+
+#postCreateContent .dark {
+  background-color: #636363;
+}
+
+#postCreateContent .light {
+  background-color: #ebebeb;
+}
+
 #postCreateContent {
 display: flex;
 flex-direction: column;
 height: 89.5vh;
 width: 100vw;
-background-color: #ebebeb;
 overflow: hidden;
 }
 

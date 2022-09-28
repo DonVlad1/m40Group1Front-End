@@ -7,6 +7,7 @@ body {
     width: inherit;
     height: inherit;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #root {
@@ -20,6 +21,16 @@ body {
     justify-content: center;
     align-content: center;
 }
-body{
-    overflow-x: hidden;
+
+body.dark {
+    background-color: #636363;
+    color: white;
 }
+
+body.light {
+    background-color: #ebebeb;
+    color: black;
+}
+
+
+

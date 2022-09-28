@@ -6,7 +6,7 @@ import { FaUserCircle } from "react-icons/fa"
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
-function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone}) {
+function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone, darkMode, setDarkMode}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
@@ -61,7 +61,13 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                 </div>
             </div>) : 
             (<div>
-            <div id="postCreateContent" >
+            <div id="postCreateContent" className={darkMode === true? "dark":"light"}>
+            <div>
+                <img src="./toggle1.svg" className="fas fa-moon" alt="darkmode" onClick={(() => setDarkMode(true) )}></img>
+                <img src="./toggle2.svg" className="fas fa-sun" alt="lightmode" onClick={(() => setDarkMode(false) )}></img>
+                <div className='ball'/>
+                    <label/>
+                </div>
                 {/* <form id="postCreateForm">
                     <input type="text" className="search_input" placeholder="Search"/>
                 </form> */}

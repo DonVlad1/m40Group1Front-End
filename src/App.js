@@ -17,19 +17,20 @@ function App(props) {
   const [email, setEmail] = useState()
   const [admin, setAdmin] = useState(false)   
   const [phone, setPhone ] = useState() 
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
     <BrowserRouter>
-      <div className="App flexbox">
+      <div className={darkMode === true? "App flexbox dark": "App flexbox light" }>
         <Navbar admin={admin} loggedIn={loggedIn}/>
         <Routes>
             <Route path='/' element = {<Home />} />
-            <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} />} />
-            <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone}/>} />
-            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} />} />
-            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} />} />
-            <Route path='/browse' element = {<Browse loggedIn={loggedIn} />} />
-            <Route path='/users' element = {<ListUser />} />
+            <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} darkMode={darkMode}/>} />
+            <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} darkMode={darkMode} />} />
+            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} darkMode={darkMode} />} />
+            <Route path='/browse' element = {<Browse loggedIn={loggedIn} darkMode={darkMode}/>} />
+            <Route path='/users' element = {<ListUser />} darkMode={darkMode} />
         </Routes>
       </div>
     </BrowserRouter>

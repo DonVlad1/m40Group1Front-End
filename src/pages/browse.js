@@ -4,7 +4,7 @@ import '../css/browse.css';
 import BrowseCard from "../components/BrowseCard";
 import { listPosts } from "../utils";
 
-const Browse = ({loggedIn}) => {
+const Browse = ({loggedIn, darkMode}) => {
   const cameraAngle = ["01", "05", "09", "13", "17", "21", "22", "23", "25", "27", "28", "29", "51"]
 
 

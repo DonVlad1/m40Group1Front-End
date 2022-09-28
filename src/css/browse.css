@@ -2,10 +2,6 @@
   outline: 2px solid red;
 } */
 
-#browseContainer {
-  background-color: #ebebeb;
-}
-
 .carsContainer {
   display: flex;
   flex-flow: row wrap;
