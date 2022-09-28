@@ -32,7 +32,7 @@ const Browse = ({loggedIn}) => {
         </div>
       </div>) : 
       (<div>
-        <div class="search">
+        {/* <div class="search">
           <input type="text" className="search__input" placeholder="Search" onChange={(event) => setSearch(event.target.value)}/>
           <button className="search__button">
           <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ const Browse = ({loggedIn}) => {
               </g>
           </svg>
           </button>
-        </div>
+        </div> */}
 
         <div class="carsContainer">
           {posts?.map((post, index) => (

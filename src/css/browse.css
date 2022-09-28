@@ -53,7 +53,17 @@
   background-color: #00a347;
 }
 
-.search {
+.modalCar {
+  width: 400px;
+  align-self: center;
+}
+
+.modal-title {
+  padding-top: 50px;
+  color: #008037;
+}
+
+/* .search {
   display: flex;
   justify-content: center;
   padding-top: 20px;
@@ -105,14 +115,5 @@
   width: 1.3em;
   fill: #1d2637;
   font-size: medium;
-}
+} */
 
-.modalCar {
-  width: 400px;
-  align-self: center;
-}
-
-.modal-title {
-  padding-top: 50px;
-  color: #008037;
-}
