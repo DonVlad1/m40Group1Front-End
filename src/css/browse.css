@@ -48,6 +48,11 @@
   cursor: pointer;
 }
 
+.addCartBtn:hover {
+  cursor: pointer;
+  background-color: #00a347;
+}
+
 .search {
   display: flex;
   justify-content: center;
