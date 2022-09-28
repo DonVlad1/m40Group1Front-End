@@ -108,28 +108,6 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                         <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
                     </div>
                 </div>
-                {/* <div className="profile-info">
-                <h1 className="profile">MY PROFILE</h1>
-                <div className="user-icon"><FaUserCircle/></div>
-                    <h1>{user}</h1>
-                    <h1>display name</h1>
-                    <h1>{email}</h1>
-                    <h1>location</h1>
-                </div> */}
-                {/* <div className="random"> */}
-                {/* <div class="list-items">
-                <h1>MY ITEMS<button className="add" onClick={() => listPage()}><MdLibraryAdd/></button></h1>
-                <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
-                </div> */}
-                {/* <div class="bio">
-                <h1>BIO<button className="save"><MdSaveAlt/></button> <button className="edit"><AiTwotoneEdit/></button></h1>
-                <input type="text" class="bio__input" placeholder="Enter a bio"/>
-                </div> */}
-                {/* </div> */}
-                {/* <div className="profile-btns">
-                    <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
-                    <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
-                </div> */}
                 {modal && (
                           <div className="modal">
                           <div className="overlay" onClick={toggleModal}></div>

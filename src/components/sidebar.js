@@ -17,7 +17,7 @@ export const Sidebar = [
   },
   {
     title: 'MY CART',
-    // path: '/products',
+    path: '/products',
     cName: 'nav-text'
   },
   {

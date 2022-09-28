@@ -1,3 +1,7 @@
+/* * {
+  outline: 2px solid red;
+} */
+
 #browseContainer {
   background-color: #ebebeb;
 }
@@ -92,4 +96,14 @@
   width: 1.3em;
   fill: #1d2637;
   font-size: medium;
+}
+
+.modalCar {
+  width: 400px;
+  align-self: center;
+}
+
+.modal-title {
+  padding-top: 50px;
+  color: #008037;
 }
