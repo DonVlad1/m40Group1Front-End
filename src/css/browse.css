@@ -24,6 +24,10 @@
   align-self: center;
 }
 
+.carImage:hover {
+  filter: brightness(120%)
+}
+
 .carTitle {
   width: 15em;
 }
