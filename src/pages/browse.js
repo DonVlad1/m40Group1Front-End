@@ -9,7 +9,6 @@ const Browse = ({loggedIn}) => {
 
 
   const [search, setSearch] = useState('');
-  // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
   const [posts, setPosts] = useState([])
 
   const loadPosts = async () => {
@@ -26,7 +25,7 @@ const Browse = ({loggedIn}) => {
     <div id="browseContainer">
       {!loggedIn ? 
       (<div>
-        <div id="login-message">
+        <div id="browse-login-message">
         <h1>You are currently not logged in</h1>
         <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
         </div>
