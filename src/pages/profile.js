@@ -124,7 +124,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                           <div className="modal">
                           <div className="overlay" onClick={toggleModal}></div>
                           <div className="modal-content">
-                          <button className="closeBtn" onClick={toggleModal}>X</button>
+                            <button className="closeBtn" onClick={toggleModal}>X</button>
                             <h1 className="modal-title">Are you sure you want to delete your account?</h1>
                             <button className="modal-delete" onClick={() => confirmDelete() }><span>DELETE ACCOUNT</span></button>
                           </div>
