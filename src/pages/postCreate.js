@@ -6,7 +6,7 @@ import { postCreate } from '../utils';
 
 
 
-function PostCreate({loggedIn}) {
+function PostCreate({loggedIn, darkMode}) {
     const years = []
 
     const [title, setTitle] = useState()
@@ -48,7 +48,7 @@ function PostCreate({loggedIn}) {
     // };
 
     return (
-        <div id="postCreateContent2" className="flexbox">
+        <div id="postCreateContent2" className={darkMode === true? "dark flexbox":"light flexbox"}>
             {!loggedIn ? 
             (<div>
                 <div id="login-message">
