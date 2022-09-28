@@ -61,7 +61,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                 </div>
             </div>) : 
             (<div>
-            <div id="postCreateContent" className="postCreateContent">
+            <div id="postCreateContent" >
                 {/* <form id="postCreateForm">
                     <input type="text" className="search_input" placeholder="Search"/>
                 </form> */}

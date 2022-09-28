@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
 import '../css/postCreate.css';
 import { postCreate } from '../utils';
@@ -21,7 +21,7 @@ function PostCreate({loggedIn}) {
     const [doors, setDoors] = useState("2")
     const [location, setLocation] = useState()
     const [wiz, setWiz] = useState("wiz is a stretch goal, this is a default state")
-
+    const navigate = useNavigate()
     const submitHandler = async (event) => {
         event.preventDefault()
         console.log("postCreate.js submitHadler", title)
@@ -32,7 +32,7 @@ function PostCreate({loggedIn}) {
         priceFormat = "£" + priceFormat
 
         await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location, wiz)
-        window.location.href = "/browse"
+        navigate("/browse")
     }
 
     for (let i = 2022; i >= 1920; i--) {
@@ -48,7 +48,7 @@ function PostCreate({loggedIn}) {
     // };
 
     return (
-        <div id="postCreateContent" className="flexbox">
+        <div id="postCreateContent2" className="flexbox">
             {!loggedIn ? 
             (<div>
                 <div id="login-message">
