@@ -19,7 +19,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const submitHandler = async (event) => {
         event.preventDefault()
        
-            await updateName(token, editName, setUser)
+            await updateName(token, editName, setUser, setError)
             await updatePhone(token, editPhone, setPhone)
             await updatePassword(token, password)
             await updateEmail(token, editEmail, setEmail, setError)
@@ -36,12 +36,12 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
       }
 
     const togalEditModal = () => {
-        if(error === "email already exists"){
+        if(error === "email already exists" || "username already exists"){
+            console.log(error)
             setEditModal(true)
             setError("") 
             return
         }else {
-            console.log(error)
             setEditModal(!editModal)
         }
     }

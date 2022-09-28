@@ -164,7 +164,7 @@ export const listPosts = async (setter) => {
 
 // ----------------------------- update -----------------------------
 
-export const updateName = async ( token, username, setUser ) => {
+export const updateName = async ( token, username, setUser, setError ) => {
     try {
         const response = await fetch(`http://localhost:5000/user/editname/`, {
             method:"PUT",
@@ -177,8 +177,13 @@ export const updateName = async ( token, username, setUser ) => {
             })
         })
         const data = await response.json()
-        setUser(data.username)
-        console.log(data)
+        if(data.error === 1062){
+            setError("username already exists")
+        } else if (data.username){
+            setUser(data.username)
+            setError("")
+            console.log(data)
+        }
 
     } catch (error) {
         console.error(error)
