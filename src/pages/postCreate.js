@@ -32,7 +32,7 @@ function PostCreate({loggedIn}) {
         priceFormat = "£" + priceFormat
 
         await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location, wiz)
-        window.location.href = "/browse"
+        navigate("/browse")
     }
 
     for (let i = 2022; i >= 1920; i--) {
