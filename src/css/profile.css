@@ -61,10 +61,11 @@ flex-direction: column;
 
 .container-items-title-btn {
 display: flex;
+
 }
 
 .items-title {
-width: 12%;
+max-width: 20%;
 }
 
 /* ============================================================= */
@@ -142,6 +143,15 @@ justify-content: flex-start;
 text-align: left;
 }
 
+.container-profile-details h1 {
+  font-size: 1.5em;
+}
+.container-profile-details {
+  max-width: 100%;
+  margin-left: 15px;
+  /* width: 250px; */
+  min-width: 50%;
+}
 .bio {
   display: flex;
   flex-direction: column;
@@ -354,7 +364,9 @@ text-align: left;
   margin: 100px auto 0;
   font-size: 18px;
 }
-
+.modal{
+  margin-top: 60px;
+}
 .modal, .overlay {
   width: 100vw;
   height: 100vh;
@@ -379,6 +391,8 @@ text-align: left;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-delete {
@@ -391,17 +405,21 @@ text-align: left;
   border-radius: 10px;
   border-style: none;
   align-self: center;
+  cursor: pointer;
 }
 
 .close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
   padding: 5px 7px;
 }
 
 .modal-title{
   text-align: center;
+  margin-top: -30px;
+  padding-top: 0;
 }
 
 .modal-input {
@@ -412,6 +430,7 @@ text-align: left;
 .modal-btns {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .modal-cancel {
@@ -424,6 +443,7 @@ text-align: left;
   border-radius: 10px;
   border-style: none;
   align-self: center;
+  cursor: pointer;
 }
 
 .modal-save{
@@ -436,6 +456,20 @@ text-align: left;
   border-radius: 10px;
   border-style: none;
   align-self: center;
+  cursor: pointer;
+}
+
+.errorDivClassForEdit{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.errorMessageClassForEdit{
+  font-size:xx-large;
+  padding: 0;
+  font-weight: 900;
+
 }
 
 @media screen and (max-width: 1920px ) {
