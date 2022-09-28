@@ -18,11 +18,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
 
     const submitHandler = async (event) => {
         event.preventDefault()
-       
-            await updateName(token, editName, setUser, setError)
-            await updatePhone(token, editPhone, setPhone)
-            await updatePassword(token, password)
-            await updateEmail(token, editEmail, setEmail, setError)
+        await updateName(token, editName, setUser, setError)
+        await updatePhone(token, editPhone, setPhone)
+        await updatePassword(token, password)
+        await updateEmail(token, editEmail, setEmail, setError)
             setTimeout(() => {
                 togalEditModal()
             }, 3500);
@@ -145,10 +144,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <h1 className="modal-title">Edit Profile Info</h1>
                             <form onSubmit = {submitHandler}>
                             <div className="modal-input">
-                                <input onChange={(event) => setEditName(event.target.value)} placeholder={user} class="signUpInput" required/>
-                                <input onChange={(event) => setEditEmail(event.target.value)} placeholder={email} class="signUpInput" required/>
-                                <input onChange={(event) => setEditPhone(event.target.value)} placeholder={phone} class="signUpInput" required/>
-                                <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" class="signUpInput" required/>
+                                <input onChange={(event) => setEditName(event.target.value)} placeholder={user} className="signUpInput" required/>
+                                <input onChange={(event) => setEditEmail(event.target.value)} placeholder={email} className="signUpInput" required/>
+                                <input onChange={(event) => setEditPhone(event.target.value)} placeholder={phone} className="signUpInput" required/>
+                                <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" className="signUpInput" required/>
                             </div>
                             <div className="modal-btns">
                               <button className="modal-cancel" onClick={togalEditModal}>CANCEL</button>
