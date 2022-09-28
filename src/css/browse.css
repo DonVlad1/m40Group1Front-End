@@ -69,7 +69,7 @@
   color: #008037;
 }
 
-/* .search {
+.search {
   display: flex;
   justify-content: center;
   padding-top: 20px;
@@ -121,5 +121,5 @@
   width: 1.3em;
   fill: #1d2637;
   font-size: medium;
-} */
+}
 

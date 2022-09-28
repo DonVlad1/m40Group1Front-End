@@ -22,7 +22,7 @@ function Navbar({admin, loggedIn}) {
 						</Link>
 					</div>
 					<div className="topSearchBar">
-						<input placeholder="search" class="signUpInput"/>
+						<input placeholder="search" className="signUpInput"/>
 					</div>
 					<div className='menu-bar-Div'>
 						<Link to='#' className='menu-bars'>
