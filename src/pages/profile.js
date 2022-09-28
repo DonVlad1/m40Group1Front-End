@@ -19,9 +19,9 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const submitHandler = async (event) => {
         event.preventDefault()
         await updateName(token, editName, setUser, setError)
+        await updateEmail(token, editEmail, setEmail, setError)
         await updatePhone(token, editPhone, setPhone)
         await updatePassword(token, password)
-        await updateEmail(token, editEmail, setEmail, setError)
             setTimeout(() => {
                 togalEditModal()
             }, 3500);
@@ -35,12 +35,12 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
       }
 
     const togalEditModal = () => {
-        if(error === "email already exists" || "username already exists"){
+        if(error === "email already exists" || error === "username already exists"){
             console.log(error)
             setEditModal(true)
             setError("") 
-            return
         }else {
+            console.log("toggle modal")
             setEditModal(!editModal)
         }
     }
@@ -136,7 +136,9 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                           <div className="modal-content">
                             <button className="closeBtn" onClick={togalEditModal}>X</button>
                             {error ? (
-                                  <p>{error}</p>
+                                <div className="errorDivClassForEdit">
+                                    <p className="errorMessageClassForEdit">{error}!</p>
+                                </div>
                             ): (
                                 <></>
                             )}
