@@ -6,6 +6,12 @@
   background-color: #ebebeb;
 }
 
+#browse-login-message {
+  width: 100vw;
+  height: 87.1vh;
+  text-align: center;
+}
+
 .carsContainer {
   display: flex;
   flex-flow: row wrap;

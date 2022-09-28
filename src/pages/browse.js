@@ -24,7 +24,7 @@ const Browse = ({loggedIn}) => {
     <div id="browseContainer">
       {!loggedIn ? 
       (<div>
-        <div id="login-message">
+        <div id="browse-login-message">
         <h1>You are currently not logged in</h1>
         <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
         </div>
