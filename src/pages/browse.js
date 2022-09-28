@@ -9,7 +9,6 @@ const Browse = ({loggedIn, darkMode}) => {
 
 
   const [search, setSearch] = useState('');
-  // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
   const [posts, setPosts] = useState([])
 
   const loadPosts = async () => {
@@ -26,13 +25,13 @@ const Browse = ({loggedIn, darkMode}) => {
     <div id="browseContainer">
       {!loggedIn ? 
       (<div>
-        <div id="login-message">
+        <div id="browse-login-message">
         <h1>You are currently not logged in</h1>
         <h2>Please click <Link to="/login" id="accountCreateLink">here</Link> to log in</h2>
         </div>
       </div>) : 
       (<div>
-        <div class="search">
+        <div className="search">
           <input type="text" className="search__input" placeholder="Search" onChange={(event) => setSearch(event.target.value)}/>
           <button className="search__button">
           <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -43,7 +42,7 @@ const Browse = ({loggedIn, darkMode}) => {
           </button>
         </div>
 
-        <div class="carsContainer">
+        <div className="carsContainer">
           {posts?.map((post, index) => (
             <BrowseCard key={index} title={post.title} info={`${post.make} ${post.model}`} price={post.price} imageSource={`https://cdn-08.imagin.studio/getImage?&customer=gbmarkmccarthycompany&make=${post.make}&modelFamily=${post.model}&angle=${cameraAngle[Math.floor(Math.random() * cameraAngle.length)]}`}/>
           ))}

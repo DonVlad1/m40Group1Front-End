@@ -2,6 +2,16 @@
   outline: 2px solid red;
 } */
 
+/* #browseContainer {
+  background-color: #ebebeb;
+} */
+
+#browse-login-message {
+  width: 100vw;
+  height: 87.1vh;
+  text-align: center;
+}
+
 .carsContainer {
   display: flex;
   flex-flow: row wrap;
@@ -18,6 +28,10 @@
 .carImage {
   width: 400px;
   align-self: center;
+}
+
+.carImage:hover {
+  filter: brightness(120%)
 }
 
 .carTitle {
@@ -38,6 +52,21 @@
   border-style: none;
   align-self: center;
   cursor: pointer;
+}
+
+.addCartBtn:hover {
+  cursor: pointer;
+  background-color: #00a347;
+}
+
+.modalCar {
+  width: 400px;
+  align-self: center;
+}
+
+.modal-title {
+  padding-top: 50px;
+  color: #008037;
 }
 
 .search {
@@ -94,12 +123,3 @@
   font-size: medium;
 }
 
-.modalCar {
-  width: 400px;
-  align-self: center;
-}
-
-.modal-title {
-  padding-top: 50px;
-  color: #008037;
-}

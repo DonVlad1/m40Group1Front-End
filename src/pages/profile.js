@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import '../css/profile.css';
 import { deleteUser, updateEmail, updateName, updatePassword, updatePhone } from "../utils";
 import { FaUserCircle } from "react-icons/fa"
-import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
+import { MdSaveAlt, MdLibraryAdd, MdConstruction } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 
 function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone, darkMode, setDarkMode}) {
@@ -14,14 +14,19 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const [editName, setEditName] = useState()
     const [editEmail, setEditEmail] = useState()
     const [editPhone, setEditPhone] = useState()
+    const [error, setError] = useState()
 
     const submitHandler = async (event) => {
         event.preventDefault()
-        await updateName(token, editName, setUser)
-        await updateEmail(token, editEmail, setEmail)
+        await updateName(token, editName, setUser, setError)
+        await updateEmail(token, editEmail, setEmail, setError)
         await updatePhone(token, editPhone, setPhone)
         await updatePassword(token, password)
-        togalEditModal()
+            setTimeout(() => {
+                togalEditModal()
+            }, 3500);
+      
+        
       }
 
     const toggleModal = () => {
@@ -30,7 +35,14 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
       }
 
     const togalEditModal = () => {
-        setEditModal(!editModal)
+        if(error === "email already exists" || error === "username already exists"){
+            console.log(error)
+            setEditModal(true)
+            setError("") 
+        }else {
+            console.log("toggle modal")
+            setEditModal(!editModal)
+        }
     }
 
     const confirmDelete = async () => {
@@ -94,7 +106,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <button className="add" onClick={() => listPage()}><MdLibraryAdd /></button>
                         </div>
                         <div className="container-items-input">
-                            <input type="text" class="list-items__input" placeholder="You currently do not have any items for sale"/>
+                            <input type="text" className="list-items__input" placeholder="You currently do not have any items for sale"/>
                         </div>
                     </div>
                 </div>
@@ -106,7 +118,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <button className="edit"><AiTwotoneEdit/></button>
                         </div>
                         <div className="container-bio-input">
-                            <input type="text" class="bio__input" placeholder="Enter a bio"/>
+                            <input type="text" className="bio__input" placeholder="Enter a bio"/>
                         </div>
                     </div>
                     <div className="profile-btns">
@@ -118,7 +130,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                           <div className="modal">
                           <div className="overlay" onClick={toggleModal}></div>
                           <div className="modal-content">
-                          <button className="closeBtn" onClick={toggleModal}>X</button>
+                            <button className="closeBtn" onClick={toggleModal}>X</button>
                             <h1 className="modal-title">Are you sure you want to delete your account?</h1>
                             <button className="modal-delete" onClick={() => confirmDelete() }><span>DELETE ACCOUNT</span></button>
                           </div>
@@ -129,13 +141,21 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                           <div className="overlay" onClick={togalEditModal}></div>
                           <div className="modal-content">
                             <button className="closeBtn" onClick={togalEditModal}>X</button>
+                            {error ? (
+                                <div className="errorDivClassForEdit">
+                                    <p className="errorMessageClassForEdit">{error}!</p>
+                                </div>
+                            ): (
+                                <></>
+                            )}
+                          
                             <h1 className="modal-title">Edit Profile Info</h1>
                             <form onSubmit = {submitHandler}>
                             <div className="modal-input">
-                                <input onChange={(event) => setEditName(event.target.value)} placeholder={user} class="signUpInput"/>
-                                <input onChange={(event) => setEditEmail(event.target.value)} placeholder={email} class="signUpInput"/>
-                                <input onChange={(event) => setEditPhone(event.target.value)} placeholder={phone} class="signUpInput"/>
-                                <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" class="signUpInput"/>
+                                <input onChange={(event) => setEditName(event.target.value)} placeholder={user} className="signUpInput" required/>
+                                <input onChange={(event) => setEditEmail(event.target.value)} placeholder={email} className="signUpInput" required/>
+                                <input onChange={(event) => setEditPhone(event.target.value)} placeholder={phone} className="signUpInput" required/>
+                                <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" className="signUpInput" required/>
                             </div>
                             <div className="modal-btns">
                               <button className="modal-cancel" onClick={togalEditModal}>CANCEL</button>

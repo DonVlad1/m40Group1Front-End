@@ -8,7 +8,7 @@ const TopNavbar = () => {
   const [search, setSearch] = useState('');
 
   return (
-    <div class="navBar">
+    <div className="navBar">
       
       <img src={Logo} alt="cars nation logo" id="logo"/>
 
