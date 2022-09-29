@@ -256,7 +256,30 @@ export const updatePhone= async ( token, phone, setPhone ) => {
         })
         const data = await response.json()
         setPhone(data.phone)
-        console.log(`Your has been updated: ${phone}`)
+        console.log(`Your number has been updated: ${phone}`)
+        console.log(data)
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
+export const updateBio= async ( token, bio, setBio ) => {
+    try {
+        const response = await fetch(`http://localhost:5000/user/editbio/`, {
+            method:"PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}` 
+            },
+            body: JSON.stringify({
+                "bio": bio
+            })
+        })
+        const data = await response.json()
+        setBio(data.bio)
+        console.log(`Your bio has been updated to: ${data.bio}`)
         console.log(data)
 
     } catch (error) {

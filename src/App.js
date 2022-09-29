@@ -16,7 +16,7 @@ function App(props) {
   const [user, setUser] = useState()
   const [email, setEmail] = useState()
   const [admin, setAdmin] = useState(false)   
-  const [phone, setPhone ] = useState() 
+  const [phone, setPhone ] = useState()
   const [darkMode, setDarkMode] = useState(true)
 
   return (
