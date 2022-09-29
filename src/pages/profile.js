@@ -18,6 +18,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const [editPhone, setEditPhone] = useState()
     const [editBio, setEditBio] = useState()
     const [error, setError] = useState()
+    const [editDarkMode, setEditDarkMode] = useState()
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -52,6 +53,17 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
         }
     }
 
+    const changeDarkmode = async () =>{
+        if(darkMode === true){
+            setDarkMode(false)
+        } else {
+            setDarkMode(true)
+        }
+        await updateDarkmode(token, setDarkMode, darkMode)
+
+    }
+
+
     const confirmDelete = async () => {
         await deleteUser(token)
         await setAdmin(false)
@@ -60,6 +72,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
 
     const logoutFunc = async () => {
         console.log("logged out")
+        setDarkMode(false)
         await setLoggedIn(false)
         await setAdmin(false)
         await navigate("/login")
@@ -84,10 +97,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
             <div>
                 {/* <input type="checkbox" class="checkbox" id="checkbox"/>
                 <label for="checkbox" class="label"/> */}
-                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode)} )}/>
+                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={(() => changeDarkmode())}/>
                     <div className="lightDark">
-                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode) })}/>
-                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode) })}/>
+                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={(() => changeDarkmode())}/>
+                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={(() => changeDarkmode())}/>
                     </div>
                     <label/>
                 </div>
@@ -128,10 +141,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <div className="container-bio-title-btn">
                                 <h1 className="bio-title">Bio</h1>
                                 <button className={darkMode === true? "dark save":"light save"} type="submit"><MdSaveAlt/></button>
-                                <button className={darkMode === true? "dark edit":"light edit"}><AiTwotoneEdit/></button>
+                                {/* <button className={darkMode === true? "dark edit":"light edit"}><AiTwotoneEdit/></button> */}
                             </div>
                             <div className="container-bio-input">
-                                <input type="text" onChange={(event) => setEditBio(event.target.value)} defaultValue={bio} className={darkMode === true? "darkerinput bio__input":"lighterinput bio__input"} placeholder={bio}/>
+                                <input type="text" onChange={(event) => setEditBio(event.target.value)} defaultValue={bio} className={darkMode === true? "darkerinput bio__input":"lighterinput bio__input"} placeholder="Enter a bio"/>
                             </div>
                     </form>
                         </div>

@@ -47,7 +47,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setBio, setDarkMode) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setter4, setDarkMode) =>
 {
     try
     {
@@ -68,7 +68,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setter2(data.email)
             setter(data.username)
             setter3(data.phone)
-            setBio(data.bio)
+            setter4(data.bio)
             setDarkMode(data.darkmode)
             navigate("/profile")
             return data.token
@@ -293,7 +293,8 @@ export const updateBio= async ( token, bio, setBio ) => {
     }
 
 }
-export const updateDarkmode= async ( token, darkMode, setDarkMode ) => {
+export const updateDarkmode= async ( token, setDarkMode, darkMode ) => {
+   
     try {
         const response = await fetch(`http://localhost:5000/user/editdarkmode/`, {
             method:"PUT",
@@ -306,10 +307,9 @@ export const updateDarkmode= async ( token, darkMode, setDarkMode ) => {
             })
         })
         const data = await response.json()
-        setDarkMode(data.darkmode)
         console.log(`darkmode has been updated to: ${data.darkmode}`)
+        // setDarkMode(data.darkmode)
         console.log(data)
-
     } catch (error) {
         console.error(error)
     }

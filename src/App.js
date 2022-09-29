@@ -18,7 +18,7 @@ function App(props) {
   const [admin, setAdmin] = useState(false);  
   const [phone, setPhone ] = useState();
   const [bio, setBio ] = useState("Enter a bio");
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState();
 
   return (
     <BrowserRouter>
@@ -28,8 +28,8 @@ function App(props) {
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} darkMode={darkMode}/>} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone} darkMode={darkMode} setDarkMode={setDarkMode} bio={bio} setBio={setBio}/>} />
-            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} darkMode={darkMode} setBio={setBio} setDarkMode={setDarkMode} />} />
-            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} darkMode={darkMode} setter3={setPhone} setDarkMode={setDarkMode} />} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} setBio={setBio} darkMode={darkMode}  setDarkMode={setDarkMode} />} />
+            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} darkMode={darkMode} setter3={setPhone} setter4={setBio} setDarkMode={setDarkMode} />} />
             <Route path='/browse' element = {<Browse loggedIn={loggedIn} darkMode={darkMode}/>} />
             <Route path='/users' element = {<ListUser />} darkMode={darkMode} />
         </Routes>
