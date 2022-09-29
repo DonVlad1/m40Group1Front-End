@@ -27,11 +27,11 @@ const Signup = ({setter, setLoggedIn, setToken, setter2, darkMode, setter3, sett
         <h1>SIGN UP</h1>
         <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" class="signUpInput"/>
 
-        <input onChange={(event) => setEmail(event.target.value)} placeholder="Contact Email" class="signUpInput"/>
+        <input type="email" onChange={(event) => setEmail(event.target.value)} placeholder="Contact Email" class="signUpInput"/>
 
         <input onChange={(event) => setPhone(event.target.value)} placeholder="Phone Number" class="signUpInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="signUpInput"/>
+        <input type="password" onChange={(event) => setPassword(event.target.value)} placeholder="Password" class="signUpInput"/>
 
         <button type="submit">CREATE ACCOUNT</button>
     
