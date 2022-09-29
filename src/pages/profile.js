@@ -184,7 +184,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                                 <input onChange={(event) => setEditName(event.target.value)}  defaultValue={user} placeholder="New Username" className="signUpInput" required/>
                                 <input onChange={(event) => setEditEmail(event.target.value)} type="email" defaultValue ={email} placeholder="New Email" className="signUpInput" required/>
                                 <input onChange={(event) => setEditPhone(event.target.value)} defaultValue={phone} placeholder="New Phone" className="signUpInput" required/>
-                                <input onChange={(event) => setPassword(event.target.value)} type="password" minlength="3" placeholder="New Password" className="signUpInput" required/>
+                                <input onChange={(event) => setPassword(event.target.value)} type="password" minLength="3" placeholder="New Password" className="signUpInput" required/>
                             </div>
                             <div className="modal-btns">
                               <button className="modal-cancel" onClick={togalEditModal}>CANCEL</button>
