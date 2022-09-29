@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate, setter3, setBio) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate, setter3, setBio, setDarkMode) =>
 {
     console.log(username)
     try
@@ -19,6 +19,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
             setter2(data.email)
             setter3(data.phone)
             setBio(data.bio)
+            setDarkMode(data.darkmode)
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
@@ -46,7 +47,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setBio) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setBio, setDarkMode) =>
 {
     try
     {
@@ -68,6 +69,7 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setter(data.username)
             setter3(data.phone)
             setBio(data.bio)
+            setDarkMode(data.darkmode)
             navigate("/profile")
             return data.token
         } else {
@@ -269,6 +271,7 @@ export const updatePhone= async ( token, phone, setPhone ) => {
 }
 
 export const updateBio= async ( token, bio, setBio ) => {
+    console.log(bio)
     try {
         const response = await fetch(`http://localhost:5000/user/editbio/`, {
             method:"PUT",
@@ -283,6 +286,28 @@ export const updateBio= async ( token, bio, setBio ) => {
         const data = await response.json()
         setBio(data.bio)
         console.log(`Your bio has been updated to: ${data.bio}`)
+        console.log(data)
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+export const updateDarkmode= async ( token, darkMode, setDarkMode ) => {
+    try {
+        const response = await fetch(`http://localhost:5000/user/editdarkmode/`, {
+            method:"PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}` 
+            },
+            body: JSON.stringify({
+                "darkmode": darkMode
+            })
+        })
+        const data = await response.json()
+        setDarkMode(data.darkmode)
+        console.log(`darkmode has been updated to: ${data.darkmode}`)
         console.log(data)
 
     } catch (error) {

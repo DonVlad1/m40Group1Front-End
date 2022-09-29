@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import '../css/profile.css';
-import { deleteUser, updateEmail, updateName, updatePassword, updatePhone, updateBio } from "../utils";
+import { deleteUser, updateEmail, updateName, updatePassword, updatePhone, updateBio, updateDarkmode } from "../utils";
 import { FaUserCircle } from "react-icons/fa"
 import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
@@ -84,10 +84,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
             <div>
                 {/* <input type="checkbox" class="checkbox" id="checkbox"/>
                 <label for="checkbox" class="label"/> */}
-                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={(() => setDarkMode(!darkMode) )}/>
+                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode)} )}/>
                     <div className="lightDark">
-                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={(() => setDarkMode(!darkMode) )}/>
-                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={(() => setDarkMode(!darkMode) )}/>
+                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode) })}/>
+                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={( async () => {setDarkMode(!darkMode); await updateDarkmode(token, setDarkMode, darkMode) })}/>
                     </div>
                     <label/>
                 </div>
