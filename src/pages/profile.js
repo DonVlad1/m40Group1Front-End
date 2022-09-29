@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import '../css/profile.css';
-import { deleteUser, updateEmail, updateName, updatePassword, updatePhone } from "../utils";
+import { deleteUser, updateEmail, updateName, updatePassword, updatePhone, updateBio, updateDarkmode } from "../utils";
 import { FaUserCircle } from "react-icons/fa"
-import { MdSaveAlt, MdLibraryAdd, MdConstruction } from "react-icons/md";
+import { MdSaveAlt, MdLibraryAdd } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import moonsvg from "./toggle1.svg";
-import sunsvg from "./toggle2.svg";
 
-function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone, darkMode, setDarkMode}) {
+
+function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, setAdmin, setPhone, phone, darkMode, setDarkMode, bio, setBio}) {
     const navigate = useNavigate();
     const [modal, setModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
@@ -17,7 +16,9 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const [editName, setEditName] = useState()
     const [editEmail, setEditEmail] = useState()
     const [editPhone, setEditPhone] = useState()
+    const [editBio, setEditBio] = useState()
     const [error, setError] = useState()
+    const [editDarkMode, setEditDarkMode] = useState()
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -25,12 +26,16 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
         await updateEmail(token, editEmail, setEmail, setError)
         await updatePhone(token, editPhone, setPhone)
         await updatePassword(token, password)
+        
             setTimeout(() => {
                 togalEditModal()
             }, 3500);
       
-        
       }
+    const bioHandler = async (event) => {
+        event.preventDefault()
+        await updateBio(token, editBio, setBio)
+    }
 
     const toggleModal = () => {
         console.log(loggedIn)
@@ -48,6 +53,17 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
         }
     }
 
+    const changeDarkmode = async () =>{
+        if(darkMode === true){
+            setDarkMode(false)
+        } else {
+            setDarkMode(true)
+        }
+        await updateDarkmode(token, setDarkMode, darkMode)
+
+    }
+
+
     const confirmDelete = async () => {
         await deleteUser(token)
         await setAdmin(false)
@@ -56,6 +72,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
 
     const logoutFunc = async () => {
         console.log("logged out")
+        setDarkMode(false)
         await setLoggedIn(false)
         await setAdmin(false)
         await navigate("/login")
@@ -80,10 +97,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
             <div>
                 {/* <input type="checkbox" class="checkbox" id="checkbox"/>
                 <label for="checkbox" class="label"/> */}
-                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={(() => setDarkMode(!darkMode) )}/>
+                <div className={darkMode === true? "ball-dark":"ball-light"} onClick={(() => changeDarkmode())}/>
                     <div className="lightDark">
-                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={(() => setDarkMode(!darkMode) )}/>
-                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={(() => setDarkMode(!darkMode) )}/>
+                        <BsFillSunFill id="fa-sun" alt="lightmode" onClick={(() => changeDarkmode())}/>
+                        <BsFillMoonFill id="fa-moon" alt="darkmode" onClick={(() => changeDarkmode())}/>
                     </div>
                     <label/>
                 </div>
@@ -118,16 +135,20 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                     </div>
                 </div>
                 <div className="container-bottom">
-                    <div className="container-bio">
-                        <div className="container-bio-title-btn">
-                            <h1 className="bio-title">Bio</h1>
-                            <button className={darkMode === true? "dark save":"light save"}><MdSaveAlt/></button>
-                            <button className={darkMode === true? "dark edit":"light edit"}><AiTwotoneEdit/></button>
+
+                        <div className="container-bio">
+                    <form onSubmit = {bioHandler}>
+                            <div className="container-bio-title-btn">
+                                <h1 className="bio-title">Bio</h1>
+                                <button className={darkMode === true? "dark save":"light save"} type="submit"><MdSaveAlt/></button>
+                                {/* <button className={darkMode === true? "dark edit":"light edit"}><AiTwotoneEdit/></button> */}
+                            </div>
+                            <div className="container-bio-input">
+                                <input type="text" onChange={(event) => setEditBio(event.target.value)} defaultValue={bio} className={darkMode === true? "darkerinput bio__input":"lighterinput bio__input"} placeholder="Enter a bio"/>
+                            </div>
+                    </form>
                         </div>
-                        <div className="container-bio-input">
-                            <input type="text" className={darkMode === true? "darkerinput bio__input":"lighterinput bio__input"} placeholder="Enter a bio"/>
-                        </div>
-                    </div>
+
                     <div className="profile-btns">
                         <button className="logout" onClick={() => logoutFunc()}><span>LOG OUT</span></button>
                         <button className="delete-acc" onClick={toggleModal}><span>DELETE ACCOUNT</span></button>
@@ -159,9 +180,9 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <h1 className="modal-title">Edit Profile Info</h1>
                             <form onSubmit = {submitHandler}>
                             <div className="modal-input">
-                                <input onChange={(event) => setEditName(event.target.value)} placeholder={user} className="signUpInput" required/>
-                                <input onChange={(event) => setEditEmail(event.target.value)} placeholder={email} className="signUpInput" required/>
-                                <input onChange={(event) => setEditPhone(event.target.value)} placeholder={phone} className="signUpInput" required/>
+                                <input onChange={(event) => setEditName(event.target.value)}  defaultValue={user} className="signUpInput" required/>
+                                <input onChange={(event) => setEditEmail(event.target.value)} defaultValue ={email} placeholder={email} className="signUpInput" required/>
+                                <input onChange={(event) => setEditPhone(event.target.value)} value={phone} placeholder={phone} className="signUpInput" required/>
                                 <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" className="signUpInput" required/>
                             </div>
                             <div className="modal-btns">
