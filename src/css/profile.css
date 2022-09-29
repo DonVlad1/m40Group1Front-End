@@ -194,6 +194,8 @@ justify-content: center;
 .closeBtn {
 display: flex;
 justify-content: flex-end;
+cursor: pointer;
+z-index: 1;
 }
 
 .closeBtn {
@@ -201,6 +203,7 @@ background-color: transparent;
 border: none;
 font-size: 25px;
 cursor: pointer;
+z-index: 1;
 }
 
 #login-message {

@@ -17,7 +17,7 @@ const BrowseCard = ({title, info, price, imageSource}) => {
 
   return (
     <div class="carCard">
-      <img src={imageSource} alt="image of car" class="carImage"/>
+      <img src={imageSource} alt="autotrader car" class="carImage"/>
       <h2 className='carTitle'>{title}</h2>
       <h2>{info}</h2>
       <h2>{price}</h2>
@@ -29,7 +29,7 @@ const BrowseCard = ({title, info, price, imageSource}) => {
                           <button className="closeBtn" onClick={toggleAddToCartModal}>X</button>
                             <div className="modal-container">
                               <div className="modal-car-info" >
-                                <img className="modalCar" src={imageSource} alt="image of car"/>
+                                <img className="modalCar" src={imageSource} alt="autotrader car"/>
                                 <h2>{title}</h2>
                                 <h2>{price}</h2>
                               </div>

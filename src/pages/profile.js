@@ -18,7 +18,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const [editPhone, setEditPhone] = useState()
     const [editBio, setEditBio] = useState()
     const [error, setError] = useState()
-    const [editDarkMode, setEditDarkMode] = useState()
+    // const [editDarkMode, setEditDarkMode] = useState()
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -59,6 +59,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
         } else {
             setDarkMode(true)
         }
+        console.log(darkMode)
         await updateDarkmode(token, setDarkMode, darkMode)
 
     }
@@ -180,10 +181,10 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
                             <h1 className="modal-title">Edit Profile Info</h1>
                             <form onSubmit = {submitHandler}>
                             <div className="modal-input">
-                                <input onChange={(event) => setEditName(event.target.value)}  defaultValue={user} className="signUpInput" required/>
-                                <input onChange={(event) => setEditEmail(event.target.value)} defaultValue ={email} placeholder={email} className="signUpInput" required/>
-                                <input onChange={(event) => setEditPhone(event.target.value)} value={phone} placeholder={phone} className="signUpInput" required/>
-                                <input onChange={(event) => setPassword(event.target.value)} placeholder="New Password" className="signUpInput" required/>
+                                <input onChange={(event) => setEditName(event.target.value)}  defaultValue={user} placeholder="New Username" className="signUpInput" required/>
+                                <input onChange={(event) => setEditEmail(event.target.value)} type="email" defaultValue ={email} placeholder="New Email" className="signUpInput" required/>
+                                <input onChange={(event) => setEditPhone(event.target.value)} defaultValue={phone} placeholder="New Phone" className="signUpInput" required/>
+                                <input onChange={(event) => setPassword(event.target.value)} type="password" minlength="3" placeholder="New Password" className="signUpInput" required/>
                             </div>
                             <div className="modal-btns">
                               <button className="modal-cancel" onClick={togalEditModal}>CANCEL</button>

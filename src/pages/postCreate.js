@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import { Editor } from '@tinymce/tinymce-react';
+// import { Editor } from '@tinymce/tinymce-react';
 import '../css/postCreate.css';
 import { postCreate } from '../utils';
 
@@ -20,7 +20,7 @@ function PostCreate({loggedIn, darkMode}) {
     const [colour, setColour] = useState()
     const [doors, setDoors] = useState("2")
     const [location, setLocation] = useState()
-    const [wiz, setWiz] = useState("wiz is a stretch goal, this is a default state")
+    // const [wiz, setWiz] = useState("wiz is a stretch goal, this is a default state")
     const navigate = useNavigate()
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -31,7 +31,7 @@ function PostCreate({loggedIn, darkMode}) {
         let priceFormat = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         priceFormat = "£" + priceFormat
 
-        await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location, wiz)
+        await postCreate(title, priceFormat, make, formatedModel, type, drivechain, year, miles, colour, doors, location)
         navigate("/browse")
     }
 

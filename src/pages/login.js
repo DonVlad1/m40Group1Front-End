@@ -26,7 +26,7 @@ const Login = ({setter, setToken, setLoggedIn, setter2, setAdmin, setter3, darkM
         
         <input onChange={(event) => setUsername(event.target.value)} placeholder="Username" className="loginInput"/>
 
-        <input onChange={(event) => setPassword(event.target.value)} placeholder="Password" className="loginInput"/>
+        <input type="password" onChange={(event) => setPassword(event.target.value)} placeholder="Password" className="loginInput"/>
 
         <button type="submit">SIGN IN</button>
 
