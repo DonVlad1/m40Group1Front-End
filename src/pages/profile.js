@@ -18,7 +18,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
     const [editPhone, setEditPhone] = useState()
     const [editBio, setEditBio] = useState()
     const [error, setError] = useState()
-    const [editDarkMode, setEditDarkMode] = useState()
+    // const [editDarkMode, setEditDarkMode] = useState()
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -59,6 +59,7 @@ function Profile({loggedIn, token, setLoggedIn, setUser, user, setEmail, email, 
         } else {
             setDarkMode(true)
         }
+        console.log(darkMode)
         await updateDarkmode(token, setDarkMode, darkMode)
 
     }

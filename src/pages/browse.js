@@ -8,7 +8,7 @@ const Browse = ({loggedIn, darkMode}) => {
   const cameraAngle = ["01", "05", "09", "13", "17", "21", "22", "23", "25", "27", "28", "29", "51"]
 
 
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
   // Cars needs to be set, and each car needs to rendered separately. At the moment, car rendering is hard coded
   const [posts, setPosts] = useState([])
 
@@ -33,7 +33,7 @@ const Browse = ({loggedIn, darkMode}) => {
       </div>) : 
       (<div>
         <div className="search">
-          <input type="text" className="search__input" placeholder="Search" onChange={(event) => setSearch(event.target.value)}/>
+          <input type="text" className="search__input" placeholder="Search" />
           <button className="search__button">
           <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
               <g>
