@@ -28,8 +28,8 @@ function App(props) {
             <Route path='/' element = {<Home />} />
             <Route path='/postCreate' element = {<PostCreate loggedIn={loggedIn} darkMode={darkMode}/>} />
             <Route path='/profile' element = {<Profile loggedIn={loggedIn} token={token} setLoggedIn={setLoggedIn} setUser={setUser} user={user} setEmail={setEmail} email={email} setAdmin={setAdmin} setPhone={setPhone} phone={phone} darkMode={darkMode} setDarkMode={setDarkMode} bio={bio} setBio={setBio}/>} />
-            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} darkMode={darkMode} />} />
-            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} darkMode={darkMode} />} />
+            <Route path='login' element = {<Login setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} setAdmin={setAdmin} setter3={setPhone} darkMode={darkMode} setBio={setBio}/>} />
+            <Route path='signup' element = {<Signup setToken={setToken} setter={setUser} setLoggedIn={setLoggedIn} setter2={setEmail} darkMode={darkMode} setter3={setPhone}/>} />
             <Route path='/browse' element = {<Browse loggedIn={loggedIn} darkMode={darkMode}/>} />
             <Route path='/users' element = {<ListUser />} darkMode={darkMode} />
         </Routes>

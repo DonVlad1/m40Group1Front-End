@@ -1,5 +1,5 @@
 // ----------------------------- create -----------------------------
-export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate, setter3) =>
+export const login = async (username, password, setter, setLoggedIn, setter2, setAdmin, navigate, setter3, setBio) =>
 {
     console.log(username)
     try
@@ -18,6 +18,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
             setter(data.username)
             setter2(data.email)
             setter3(data.phone)
+            setBio(data.bio)
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
@@ -45,7 +46,7 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
     }
 }
 
-export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate) =>
+export const signup = async (username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setBio) =>
 {
     try
     {
@@ -65,6 +66,8 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setLoggedIn(true)
             setter2(data.email)
             setter(data.username)
+            setter3(data.phone)
+            setBio(data.bio)
             navigate("/profile")
             return data.token
         } else {

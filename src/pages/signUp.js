@@ -4,7 +4,7 @@ import { signup } from '../utils';
 import ProfileIcon from '../assets/account-circle.png'
 import { useNavigate } from "react-router-dom";
 
-const Signup = ({setter, setLoggedIn, setToken, setter2, darkMode}) => {
+const Signup = ({setter, setLoggedIn, setToken, setter2, darkMode, setter3, setBio}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
@@ -14,7 +14,7 @@ const Signup = ({setter, setLoggedIn, setToken, setter2, darkMode}) => {
 
   const submitHandler = async (event) => {
     event.preventDefault()
-    let token = await signup(username, email, password, phone, setter, setLoggedIn, setter2, navigate)
+    let token = await signup(username, email, password, phone, setter, setLoggedIn, setter2, navigate, setter3, setBio)
     setToken(token)
   }
 
