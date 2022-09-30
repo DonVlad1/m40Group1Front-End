@@ -14,7 +14,8 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
 
         })
         const data = await response.json()
-        if(data.username && data.token){
+        if (data.username && data.token)
+        {
             setter(data.username)
             setter2(data.email)
             setter3(data.phone)
@@ -23,23 +24,26 @@ export const login = async (username, password, setter, setLoggedIn, setter2, se
             setLoggedIn(true)
             console.log(data)
             console.log(`You logged in as Account: ${data.username}`)
-            if(data.username === "Admin"){
+            if (data.username === "Admin")
+            {
                 console.log(`You have logged in as an Admin`)
                 setAdmin(true)
                 await navigate("/profile")
                 return data.token
             }
-            else {
+            else
+            {
                 setAdmin(false)
                 await navigate("/profile")
                 return data.token
             }
-        } else {
+        } else
+        {
             console.log(data)
             console.log(`Account: ${data.username} cannot be found`)
             setLoggedIn(false)
         }
-       
+
     }
     catch (error)
     {
@@ -62,7 +66,8 @@ export const signup = async (username, email, password, phone, setter, setLogged
             })
         })
         const data = await response.json()
-        if(data.username){
+        if (data.username)
+        {
             console.log(`You logged in as Account: ${data.username}`)
             setLoggedIn(true)
             setter2(data.email)
@@ -72,7 +77,8 @@ export const signup = async (username, email, password, phone, setter, setLogged
             setDarkMode(data.darkmode)
             navigate("/profile")
             return data.token
-        } else {
+        } else
+        {
             console.log(`Account Already exists!`)
             setLoggedIn(false)
         }
@@ -83,7 +89,8 @@ export const signup = async (username, email, password, phone, setter, setLogged
     }
 }
 
-export const postCreate = async (title, price, make, model, type, drivechain, yearString, miles, colour, doors, location, wiz) => {
+export const postCreate = async (title, price, make, model, type, drivechain, yearString, miles, colour, doors, location, wiz) =>
+{
     const testObject = {
         user_id: 0,
         title: title,
@@ -103,7 +110,8 @@ export const postCreate = async (title, price, make, model, type, drivechain, ye
 
     // const response = await fetch("http://localhost:5000/health")
 
-    try {
+    try
+    {
         const response = await fetch("http://localhost:5000/posts", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -127,7 +135,8 @@ export const postCreate = async (title, price, make, model, type, drivechain, ye
         const data = await response.json()
         console.log(data)
     }
-    catch (error) {
+    catch (error)
+    {
         console.log(error)
     }
 }
@@ -152,8 +161,10 @@ export const listUsers = async (setter) =>
     }
 }
 
-export const listPosts = async (setter) => {
-    try {
+export const listPosts = async (setter) =>
+{
+    try
+    {
         const response = await fetch("http://localhost:5000/posts", {
             method: "GET",
             headers: {
@@ -162,47 +173,55 @@ export const listPosts = async (setter) => {
         })
         return response.json()
     }
-    catch (error) {
+    catch (error)
+    {
         console.log(error)
     }
 }
 
 // ----------------------------- update -----------------------------
 
-export const updateName = async ( token, username, setUser, setError ) => {
-    try {
+export const updateName = async (token, username, setUser, setError) =>
+{
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editname/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "username": username
             })
         })
         const data = await response.json()
-        if(data.error === 1062){
+        if (data.error === 1062)
+        {
             setError("username already exists")
-        } else if (data.username){
+        } else if (data.username)
+        {
             setUser(data.username)
             setError("")
             console.log(data)
         }
 
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 
 }
 
-export const updateEmail = async ( token, email, setEmail, setError ) => {
-    try {
+export const updateEmail = async (token, email, setEmail, setError) =>
+{
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editemail/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "email": email
@@ -210,28 +229,33 @@ export const updateEmail = async ( token, email, setEmail, setError ) => {
         })
         const data = await response.json()
         console.log(data.error)
-        if(data.error === 1062){
+        if (data.error === 1062)
+        {
             setError("email already exists")
-        } else if (data.email){
+        } else if (data.email)
+        {
             setEmail(data.email)
             setError("")
-            console.log(data)   
+            console.log(data)
         }
 
-    } catch (error) {
+    } catch (error)
+    {
         console.log("in Catch block")
         console.error(error)
     }
 
 }
 
-export const updatePassword = async ( token, password ) => {
-    try {
+export const updatePassword = async (token, password) =>
+{
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editpassword/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "password": password
@@ -241,19 +265,22 @@ export const updatePassword = async ( token, password ) => {
         console.log(`Your password has been updated: ${password}`)
         console.log(data)
 
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 
 }
 
-export const updatePhone= async ( token, phone, setPhone ) => {
-    try {
+export const updatePhone = async (token, phone, setPhone) =>
+{
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editphone/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "phone": phone
@@ -264,20 +291,23 @@ export const updatePhone= async ( token, phone, setPhone ) => {
         console.log(`Your number has been updated: ${phone}`)
         console.log(data)
 
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 
 }
 
-export const updateBio= async ( token, bio, setBio ) => {
+export const updateBio = async (token, bio, setBio) =>
+{
     console.log(bio)
-    try {
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editbio/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "bio": bio
@@ -288,19 +318,22 @@ export const updateBio= async ( token, bio, setBio ) => {
         console.log(`Your bio has been updated to: ${data.bio}`)
         console.log(data)
 
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 
 }
-export const updateDarkmode= async ( token, setDarkMode, darkMode ) => {
-   
-    try {
+export const updateDarkmode = async (token, setDarkMode, darkMode) =>
+{
+
+    try
+    {
         const response = await fetch(`http://localhost:5000/user/editdarkmode/`, {
-            method:"PUT",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 "darkmode": darkMode
@@ -310,25 +343,29 @@ export const updateDarkmode= async ( token, setDarkMode, darkMode ) => {
         console.log(`darkmode has been updated to: ${data.darkmode}`)
         // setDarkMode(data.darkmode)
         console.log(data)
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 
 }
 // ----------------------------- delete -----------------------------
-export const deleteUser = async ( token ) => {
-    try {
+export const deleteUser = async (token) =>
+{
+    try
+    {
         const response = await fetch(`http://localhost:5000/user`, {
-            method:"DELETE",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
+                "Authorization": `Bearer ${token}`
             }
         })
         const data = await response.json()
         console.log(data)
         console.log("Account Deleted")
-    } catch (error) {
+    } catch (error)
+    {
         console.error(error)
     }
 }
